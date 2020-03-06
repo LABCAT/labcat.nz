@@ -1,0 +1,47 @@
+
+input {
+    &:focus {
+    }
+
+    &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+    }
+}
+
+input[type="checkbox"] {
+
+    &:checked{
+
+    }
+}
+
+input[type="radio"]{
+
+    &:checked{
+
+    }
+}
+
+.optionset {
+    label {
+
+    }
+}
+
+.typography {
+    div.field {
+
+        &.checkbox {
+
+        }
+    }
+}

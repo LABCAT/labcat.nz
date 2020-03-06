@@ -1,0 +1,39 @@
+/*
+ * Normalize:
+ * 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // 1
+}
+
+/*
+ * Description:
+ * The HTML <html> element represents the root (top-level element) of an HTML document, so it is also referred to as the root element. 
+ * All other elements must be descendants of this element.
+ *
+ * Normalize:
+ * 1. Change the default font family in all browsers.
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+ * 4. Change the default tap highlight to be completely transparent in iOS.
+ */
+html {
+  font-family: sans-serif; // 1
+  line-height: 1.15; // 2
+  -webkit-text-size-adjust: 100%; // 3
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 4
+}
+
+/*
+ * Description:
+ * The HTML <body> Element represents the content of an HTML document. There can be only one <body> element in a document.
+ * 
+ * Normalize:
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}

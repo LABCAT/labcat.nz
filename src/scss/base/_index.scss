@@ -1,0 +1,62 @@
+
+/* 
+ * The following files imports groups of styles for all the HTML elements, which are created using tags. 
+ * They are grouped by function to help you find what you have in mind easily. 
+ * source: https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+ *
+ * These files includes default styles for a wide range of elements to normalize their appearance accross different browsers.
+ * Based on normalize.css : https://github.com/necolas/normalize.css/ 
+ */
+
+ @import "./html";
+
+ /* 
+  * 1. Content sectioning
+  * Content sectioning elements allow you to organize the document content into logical pieces. 
+  * Use the sectioning elements to create a broad outline for your page content, 
+  * including header and footer navigation, and heading elements to identify sections of content.   
+  */
+@import "./1-content-sectioning/_index";
+
+ /* 
+  * 2. Text content
+  * Use HTML text content elements to organize blocks or sections of content placed between the opening <body> and closing </body> tags. 
+  * Important for accessibility and SEO, these elements identify the purpose or structure of that content.     
+  */
+@import "./2-text-content/_index";
+
+ /* 
+  * 3. Inline text semantics  
+  * Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or any arbitrary piece of text.
+  */
+@import "./3-inline-text-semantics/_index";
+
+ /* 
+  * 4. Image and multimedia
+  * HTML supports various multimedia resources such as images, audio, and video.
+  */
+@import "./4-image-and-multimedia/_index";
+
+ /* 
+  * 5. Embedded content
+  * In addition to regular multimedia content, HTML can include a variety of other content, even if it's not always easy to interact with.
+  */
+@import "./5-embedded-content/_index";
+
+ /* 
+  * 6. Demarcating edits
+  * These elements let you provide indications that specific parts of the text have been altered.
+  */
+@import "./6-demarcating-edits/_index";
+
+ /* 
+  * 7. Table content
+  * The elements here are used to create and handle tabular data.
+  */
+@import "./7-table-content/_index";
+
+ /* 
+  * 8. Forms
+  * HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application. 
+  */
+@import "./1-content-sectioning/_index";
