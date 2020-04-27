@@ -1,3 +1,16 @@
 #site-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
+.logo {
+    font-family: 'Teko', sans-serif;
+    font-size: 7.2rem;
+    line-height: 2;
+    text-shadow: 
+        0px 0px 24px $light-blue, 
+        0px 0px 12px $light-blue, 
+        0px 0px 6px $light-blue, 
+        0px 0px 3px $light-blue;
 }

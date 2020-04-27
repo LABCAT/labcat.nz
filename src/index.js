@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import './scss/main.scss';
 
-// Your top level component
-import App from './App';
+import Main from './js/Main';
+import './scss/build.scss';
 
 // Export your top level component as JSX (for static rendering)
-export default App;
+export default Main;
 
 // Render your app
 if (typeof document !== 'undefined') {
@@ -27,12 +26,12 @@ if (typeof document !== 'undefined') {
   }
 
   // Render!
-  render(App)
+  render(Main)
 
   // Hot Module Replacement
   if (module && module.hot) {
-    module.hot.accept('./App', () => {
-      render(App)
+    module.hot.accept('./js/Main', () => {
+      render(Main)
     })
   }
 }

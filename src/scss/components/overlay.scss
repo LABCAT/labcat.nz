@@ -1,0 +1,11 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(27, 17, 77, 0.74) -8.35%, rgba(29, 22, 87, 0.74) -5.1%, rgba(51, 65, 174, 0.74) 28.53%, rgba(59, 82, 208, 0.74) 43.72%, rgba(53, 100, 213, 0.74) 51.31%, rgba(37, 146, 225, 0.74) 67.59%, rgba(12, 219, 245, 0.74) 89.28%, rgba(0, 255, 255, 0.74) 100.13%);
+    opacity: 0.75;
+    transform: rotate(-180deg);
+    z-index: -1;
+}

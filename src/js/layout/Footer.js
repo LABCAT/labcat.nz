@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { Link } from '@reach/router'
 
-class Footer extends Component {
-    render() {
-        return (
-            <footer id="site-footer">
-                Copyright 2020
-            </footer>
-        )
-    }
+export default function Footer() {
+
+    return (
+        <footer id="site-footer">
+            <Link to="creative-coding">
+                Creative Coding
+            </Link>
+            <Link to="audio">
+                Audio Projects
+            </Link>
+        </footer>
+    )
 }
 
-export default Footer;
