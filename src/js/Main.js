@@ -4,13 +4,13 @@ import { Link, Router } from '@reach/router'
 
 function Main() {
     return (
-        <Root>
+        <main id="main">
             <React.Suspense fallback={<em>Loading...</em>}>
                 <Router>
                     <Routes path="*" />
                 </Router>
             </React.Suspense>
-        </Root>
+        </main>
     )
 }
 

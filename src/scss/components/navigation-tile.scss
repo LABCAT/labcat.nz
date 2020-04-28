@@ -1,0 +1,36 @@
+.navigation-tile {
+    &-image-holder {
+        position: relative;
+        border: 3px solid $white;
+        border-radius: 4px;
+        box-shadow: $light-shadow;
+        transition: all 0.5s;
+
+        :hover > & {
+            box-shadow: $dark-shadow;
+        }
+    }
+
+    &-image {
+        background-size: cover;
+        background-position: center center;
+        opacity: 0;
+        transition: opacity 1.5s;
+
+        &.loaded {
+            opacity: 1;
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    &-title {
+        transition: all 0.5s;
+
+        :hover > & {
+            color: $dark-blue;
+        }
+    }
+}

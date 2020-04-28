@@ -1,27 +1,28 @@
 import React, { Fragment } from 'react'
 import { useRouteData } from 'react-static'
-import { Link } from '@reach/router'
+import NavigationTile from '../components/NavigationTile.js';
 
 export default function AudioProjectsHolder() {
     const { audioPage, audioProjects } = useRouteData();
     return (
-        <React.Fragment>
+        <section className="container">
             <h1>{audioPage.title.rendered}</h1>
-            <ul>
+            <div className="grid col-md-1 col-xl-3">
                 {
                     audioProjects.map(
                         project => (
-                            <li key={project.id}>
-                                <Link to={`/${audioPage.slug}/${project.slug}/`}>
-                                    <span dangerouslySetInnerHTML={{ __html: project.title.rendered }}>
-
-                                    </span>
-                                </Link>
-                            </li>
+                            <NavigationTile
+                                url={`/${audioPage.slug}/${project.slug}/`}
+                                title={project.title}
+                                featuredImage={project.featuredImage}
+                                imagePadding="100"
+                                key={project.id}>
+                                >
+                            </NavigationTile>
                         )
                     )
                 }
-            </ul>
-        </React.Fragment>
+            </div>
+        </section>
     )
 }

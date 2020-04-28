@@ -1,27 +1,28 @@
 import React, { Fragment } from 'react'
 import { useRouteData } from 'react-static'
-import { Link } from '@reach/router'
+import NavigationTile from '../components/NavigationTile.js';
 
-export default function CreativeProjectsHolder() {
+export default function CreativeCodingProjectsHolder() {
     const { creativeCodingPage, codeProjects } = useRouteData();
     return (
-        <React.Fragment>
+        <section className="container">
             <h1>{creativeCodingPage.title.rendered}</h1>
-            <ul>
+            <div className="grid col-md-2 col-xl-3">
                 {
                     codeProjects.map(
                         project => (
-                            <li key={project.id}>
-                                <Link to={`/${creativeCodingPage.slug}/${project.slug}/`}>
-                                    <span dangerouslySetInnerHTML={{ __html: project.title.rendered }}>
-                                        
-                                    </span>
-                                </Link>
-                            </li>
+                            <NavigationTile
+                                url={`/${creativeCodingPage.slug}/${project.slug}/`}
+                                title={project.title}
+                                featuredImage={project.featuredImage}
+                                imagePadding="52"
+                                key={project.id}>
+                            >
+                            </NavigationTile>
                         )
                     )
                 }
-            </ul>
-        </React.Fragment>
+            </div>
+        </section>
     )
 }

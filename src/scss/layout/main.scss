@@ -1,3 +1,44 @@
 #main {
     min-height: 100vh;
 }
+
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @include media(min-md){
+        padding: 0 71.5px;
+    }
+
+    @include media(min-xl){
+        max-width: 1680px;
+    }
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include media(min-md){
+        grid-column-gap: 65px;
+    }
+
+    @include media(min-xl){
+        grid-column-gap: 120px;
+    }
+}
+
+@for $i from 1 through 3 {
+    .col-md-#{$i} {
+        @include media(min-md){
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
+    
+    .col-xl-#{$i} {
+        @include media(min-xl){
+            grid-template-columns: repeat($i, 1fr);
+        }
+    }
+}

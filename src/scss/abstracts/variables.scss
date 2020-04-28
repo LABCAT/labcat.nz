@@ -1,3 +1,15 @@
 $white: white;
 $dark-blue: #1B114D;
 $light-blue: #0CDBF5;
+
+$light-shadow: 
+    0px 0px 24px $light-blue, 
+    0px 0px 12px $light-blue, 
+    0px 0px 6px $light-blue, 
+    0px 0px 3px $light-blue;
+
+$dark-shadow: 
+    0px 0px 24px $dark-blue, 
+    0px 0px 12px $dark-blue, 
+    0px 0px 6px $dark-blue, 
+    0px 0px 3px $dark-blue;

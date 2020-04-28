@@ -1,28 +1,29 @@
 import React, { Fragment }  from 'react'
 import { useRouteData } from 'react-static'
-import { Link } from '@reach/router'
+import NavigationTile from '../components/NavigationTile.js';
 
 export default function Home() {
     const { home, children } = useRouteData();
     console.log(home);
     return (
-        <React.Fragment>
+        <section className="container">
             <h1>{home.title.rendered}</h1>
-            <ul>
+            <div className="grid col-md-1 col-xl-2">
                 {
                     children.map(
                         page => (
-                            <li key={page.id}>
-                                <Link to={`/${page.slug}/`}>
-                                    <span dangerouslySetInnerHTML={{ __html: page.title.rendered }}>
-
-                                    </span>
-                                </Link>
-                            </li>
+                            <NavigationTile
+                                url={`/${page.slug}/`}
+                                title={page.title}
+                                featuredImage={page.featuredImage}
+                                imagePadding="52"
+                                key={page.id}>
+                                >
+                            </NavigationTile>
                         )
                     )
                 }
-            </ul>
-        </React.Fragment>
+            </div>
+        </section>
     )
 }
