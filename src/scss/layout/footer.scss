@@ -1,3 +1,31 @@
 #site-footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    width: 100%;
 
+    a {
+        display: block;
+        width: 50%;
+        padding: 9px 0px;
+        background-color: $dark-blue;
+        border: 1px solid white;
+        line-height: 2rem;
+        text-align: center;
+        text-transform: uppercase;
+
+        span {
+            display: block;
+            max-width: 160px;
+            margin: 0 auto;
+        }
+
+        @include media(min-sm){
+            padding: 19px 0;
+
+            span {
+                max-width: none;
+            }
+        }
+    }
 }

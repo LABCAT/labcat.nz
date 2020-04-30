@@ -1,15 +1,18 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-export default function Footer() {
-
+export default function Footer(props) {
+    if (!props.display) { 
+        return null; 
+    }
+    
     return (
         <footer id="site-footer">
             <Link to="creative-coding">
-                Creative Coding
+                <span>Creative Coding</span>
             </Link>
             <Link to="audio">
-                Audio Projects
+                <span>Audio Projects</span>
             </Link>
         </footer>
     )

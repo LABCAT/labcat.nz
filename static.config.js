@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import Header from './src/js/layout/Header.js';
-import Footer from './src/js/layout/Footer.js';
+
 
 const globalData = {
   title: 'LABCAT',
@@ -26,9 +25,7 @@ export default {
       </Head>
       <div className="overlay"></div>
       <Body>
-        <Header/>
         {children}
-        <Footer />
       </Body>
     </Html>
   ),
