@@ -12,23 +12,27 @@ export default class Main extends Component {
         this.mainEl = React.createRef();
 
         this.state = {
-            showFooter: false
+            showHeaderNav: false,
+            showFooter: false,
         }
     }
 
     onResize = (width, height) => {
-        let showFooter = this.state.showFooter;
-        console.log(width)
+        let showHeaderNav = null;
+        let showFooter = null;
         if(width < 992){
+            showHeaderNav = false;
             showFooter = true;
         }
         else {
+            showHeaderNav = true;
             showFooter = false;
         }
 
         this.setState(
             {
                 ...this.state,
+                showHeaderNav,
                 showFooter
             }
         );
@@ -37,7 +41,7 @@ export default class Main extends Component {
     render() {
         return (
             <React.Fragment>
-                <Header/>
+                <Header showNav={this.state.showHeaderNav}/>
                 <main id="main" ref={this.mainEl}>
                     <React.Suspense fallback={<em>Loading...</em>}>
                         <Router>

@@ -1,19 +1,20 @@
 .navigation-tile {
     &-image-holder {
         position: relative;
-        border: 3px solid $white;
+        border: 3px solid $black;
         border-radius: 4px;
         box-shadow: $light-shadow;
         transition: all 0.5s;
 
         :hover > & {
-            box-shadow: $dark-shadow;
+            box-shadow: $pink-shadow;
         }
     }
 
     &-image {
         background-size: cover;
         background-position: center center;
+        border: 2px solid $white;
         opacity: 0;
         transition: opacity 1.5s;
 

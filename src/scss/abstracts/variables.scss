@@ -1,6 +1,8 @@
 $white: white;
+$black: black;
 $dark-blue: #1B114D;
 $light-blue: #0CDBF5;
+$pink: #ff0cb8;
 
 $light-shadow: 
     0px 0px 24px $light-blue, 
@@ -13,3 +15,9 @@ $dark-shadow:
     0px 0px 12px $dark-blue, 
     0px 0px 6px $dark-blue, 
     0px 0px 3px $dark-blue;
+
+$pink-shadow: 
+    0px 0px 24px $pink, 
+    0px 0px 12px $pink, 
+    0px 0px 6px $pink, 
+    0px 0px 3px $pink;

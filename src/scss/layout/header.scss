@@ -1,12 +1,50 @@
 #site-header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     text-align: center;
+    border-bottom: 4px solid $light-blue;
+    padding: 0 20px;
+
+    nav {
+        margin-left: auto;
+
+        a {
+            padding: 20px;
+            font-size: 2.8rem;
+            -webkit-text-stroke: 2px $black;
+            text-transform: uppercase;
+            transition: all 1s;
+
+            &:hover {
+                text-shadow: $pink-shadow;
+            }
+
+
+            @include media(min-xxl){
+                font-size: 4rem;
+            }
+        }
+    }
 }
 
 .logo {
+    padding: 18px 0 8px;
     font-family: 'Teko', sans-serif;
     font-size: 7.2rem;
-    line-height: 2;
+    line-height: 1;
     text-shadow: $light-shadow;
+    transition: all 1s;
+    -webkit-text-stroke: 3px $dark-blue;
+
+    &:hover {
+        text-shadow: $pink-shadow;
+    }
+
+    @include media(min-xxl){
+        font-size: 9.8rem;
+    }
+
+    span {
+        display: none;
+    }
 }
