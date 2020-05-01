@@ -1,20 +1,16 @@
-import React from 'react'
-import { useRouteData } from 'react-static'
+import React from 'react';
+import { useRouteData } from 'react-static';
+import AudioProjectTile from '../components/AudioProjectTile.js';
 
 export default function AudioProject() {
-    const { project } = useRouteData()
+    const { project } = useRouteData();
     return (
-        <section className="container">
+        <section className="container audio-project">
             <h1>{project.title.rendered}</h1>
-            <div>
-                
-            </div>
-            <div>
-                <br />
-
-                <p>{project.content.rendered}</p>
-                <p>{project.featuredImage}</p>
-            </div>
+            <AudioProjectTile
+                featuredImage={project.featuredImage}
+                content={project.content}
+            />
         </section>
     )
 }

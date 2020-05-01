@@ -10,6 +10,7 @@
 @import "./base/_index";
 
 // components - search form, hamburger button etc 
+@import "./components/audio-project-tile";
 @import "./components/navigation-tile";
 @import "./components/overlay";
  
@@ -20,7 +21,6 @@
 
 // pages - styles for individual pages
 @import "./pages/home-page";
-@import "./pages/page";
 
 // utils - styles to be applied globally
 @import "./utils/fonts";

@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from '@reach/router'
 
 export default function Header(props) {
-    console.log(props);
-    
     return (
         <header id="site-header">
             <a href="/" className="logo">

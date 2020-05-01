@@ -1,0 +1,78 @@
+.audio-project {
+    
+    h1 {
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: center;
+
+        @include media(min-lg){
+            max-width: 800px;
+            margin: 60px auto;
+        }
+    }
+    
+    &-tile {
+        position: relative;
+        max-width: 300px;
+        margin: 0 auto;
+        border: 3px solid $black;
+        border-radius: 4px;
+        box-shadow: $light-shadow;
+
+        @include media(min-lg){
+            max-width: 944px;
+        }
+
+        &-inner {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid $white;
+
+            @include media(min-lg){
+                flex-direction: row;
+            }
+        }
+    }
+
+    &-image-holder {
+        @include media(min-lg){
+            width: 50%;        
+        }
+    }
+
+    &-image {
+        padding-bottom: 100%;;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0;
+        transition: opacity 1.5s;
+
+        &.loaded {
+            opacity: 1;
+        }
+
+        img {
+            display: none;
+        }
+    }
+
+    &-player {
+        position: relative;
+        padding-bottom: 100%;
+        overflow: hidden;
+
+        @include media(min-lg){
+            width: 50%;
+            padding-bottom: 50%;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    }
+}
