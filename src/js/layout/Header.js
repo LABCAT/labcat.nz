@@ -2,14 +2,18 @@ import React from 'react'
 import { Link } from '@reach/router'
 
 export default function Header(props) {
+    const { showNav, isHome } = props;
     return (
-        <header id="site-header">
+        <header id="site-header" className={isHome ? 'is-home' : 'show-border'}>
             <a href="/" className="logo">
                 LABCAT
-                <span>DIGITAL ARTIST</span>
             </a>
             {
-                props.showNav && 
+                isHome &&
+                <span>DIGITAL ARTIST</span>
+            }
+            {
+                showNav && !isHome && 
                 <nav>
                     <Link to="creative-coding">
                         Creative Coding

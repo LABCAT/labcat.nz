@@ -1,9 +1,18 @@
 #site-header {
+    position: relative;
+    z-index: 999;
     display: flex;
     align-items: center;
     text-align: center;
-    border-bottom: 4px solid $light-blue;
     padding: 0 20px;
+
+    &.is-home {
+        flex-direction: column;
+    }
+
+    &.show-border {
+        border-bottom: 4px solid $light-blue;
+    }
 
     nav {
         margin-left: auto;
@@ -44,7 +53,10 @@
         font-size: 9.8rem;
     }
 
-    span {
-        display: none;
+    .is-home & {
+        display: block;
+        width: 100%;
+        font-size: 14.4rem;
+        text-align: center;
     }
 }

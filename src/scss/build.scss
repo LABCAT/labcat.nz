@@ -1,7 +1,3 @@
-//vendor - used to include frameworks in your project
-//included first as frameworks often need to initilize functions, mixins and variables before any other SCSS files are imported
-@import "./vendor";
-
 //abstracts - custom functions, mixins and vairables
 @import "./abstracts/mixins";
 @import "./abstracts/variables";
@@ -11,21 +7,17 @@
 
 // components - search form, hamburger button etc 
 @import "./components/audio-project-tile";
+@import "./components/loader";
 @import "./components/navigation-tile";
-@import "./components/overlay";
+@import "./components/splash-background";
  
 //layout - to level layout of your website
 @import "./layout/footer";
 @import "./layout/header";
 @import "./layout/main";
 
-// pages - styles for individual pages
-@import "./pages/home-page";
+//page spefic styles
+@import "./page-types/home-page";
 
-// utils - styles to be applied globally
-@import "./utils/fonts";
-@import "./utils/forms";
-@import "./utils/html-elements";
-@import "./utils/print";
-@import "./utils/typography";
-@import "./utils/utilities";
+// utils - styles available globally
+@import "./utils/overlay";

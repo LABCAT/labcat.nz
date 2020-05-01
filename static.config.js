@@ -24,7 +24,7 @@ export default {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800,900&family=Teko:wght@700&display=swap" rel="stylesheet" /> 
       </Head>
-      <div className="overlay"></div>
+      <div className="overlay overlay-fixed"></div>
       <Body>
         {children}
       </Body>
