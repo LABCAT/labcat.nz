@@ -1,0 +1,28 @@
+.creative-coding-project {
+    
+    h1 {
+        max-width: 600px;
+        margin: 40px auto;
+        text-align: center;
+
+        @include media(min-lg){
+            max-width: 800px;
+            margin: 60px auto;
+        }
+    }
+    
+    iframe {
+        position: relative;
+        display: block;
+        margin: 0 auto 4rem;
+        border: 3px solid $black;
+        border-radius: 4px;
+        box-shadow: $light-shadow;
+    }
+
+    &-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+}

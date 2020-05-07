@@ -1,0 +1,31 @@
+/*
+ * Description:
+ * The HTML <ul> element represents an unordered list of items, typically rendered as a bulleted list.
+ */
+ 
+ul {
+    padding-left: 3rem;
+    margin-bottom: 2rem;
+
+    ul {
+        margin-top: 1.2rem;
+    }
+}
+
+/*
+ * Description:
+ * The HTML <ol> element represents an ordered list of items, typically rendered as a numbered list.
+ */
+ 
+ol {
+    @extend ul;
+}
+
+/*
+ * Description:
+ * The HTML <li> element is used to represent an item in a list.
+ */
+ 
+li {
+    margin-bottom: 1.2rem;
+}

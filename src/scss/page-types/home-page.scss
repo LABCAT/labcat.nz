@@ -1,12 +1,16 @@
 .home-page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 200%;
+
+    &-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
 
     &-content {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         left: 0;

@@ -6,7 +6,6 @@
 @import "./base/_index";
 
 // components - search form, hamburger button etc 
-@import "./components/audio-project-tile";
 @import "./components/loader";
 @import "./components/navigation-tile";
 @import "./components/splash-background";
@@ -17,6 +16,8 @@
 @import "./layout/main";
 
 //page spefic styles
+@import "./page-types/audio-project";
+@import "./page-types/creative-coding-project";
 @import "./page-types/home-page";
 
 // utils - styles available globally

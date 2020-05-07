@@ -18,6 +18,7 @@ export default class SplashBackground extends Component {
 
         return (
             <div
+                id="splash"
                 className={['splash-background' + (this.state.loaded ? ' loaded' : ' loading')]}
                 style={{ backgroundImage: "url(" + image + ")" }}
             >
