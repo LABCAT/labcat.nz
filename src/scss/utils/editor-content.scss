@@ -1,0 +1,13 @@
+.editor-content {
+    > *:not(.alignfull) {
+        max-width: 840px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 2rem;
+
+    }
+    
+    > ul:not(.alignfull) {
+        padding-left: 5rem;
+    }
+}

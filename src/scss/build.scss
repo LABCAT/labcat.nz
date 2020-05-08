@@ -22,3 +22,7 @@
 
 // utils - styles available globally
 @import "./utils/overlay";
+@import "./utils/editor-content";
+
+// blocks - styling for specifc blocks output by WordPress's gutenberg editor 
+@import "./blocks/gallery";

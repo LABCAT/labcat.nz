@@ -1,0 +1,30 @@
+.wp-block-gallery {
+    margin: 0 0 2rem;
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include media(min-md){
+            display: flex;
+        }
+
+        li {
+            padding: 0 2rem;
+
+            @include media(min-md){
+                padding: 0.4rem;
+            }
+        }
+    }
+
+    &.columns-3 {
+        li {
+
+            @include media(min-md){
+                width: 33.3333%;
+            }
+        }
+    }
+}
