@@ -1,6 +1,5 @@
 @mixin media($point) {
-    
-    @if $point == xxl {
+    @if $point == min-xxl {
         @media (min-width: 1540px) { @content; }
     }
     @else if $point == min-xl {

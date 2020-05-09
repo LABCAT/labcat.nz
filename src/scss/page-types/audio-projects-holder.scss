@@ -1,0 +1,10 @@
+.audio-projects-holder {
+    .navigation-tile {
+        max-width: 465px;
+        margin: 0 auto;
+
+        @include media(min-lg){
+            max-width: none;
+        }
+    }
+}
