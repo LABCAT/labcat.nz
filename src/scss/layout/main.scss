@@ -18,28 +18,57 @@
 
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @include media(min-md){
-        grid-column-gap: 65px;
+        margin-left: -32.5px;
+        margin-right: -32.5px; 
     }
 
     @include media(min-xl){
-        grid-column-gap: 120px;
+        margin-left: -60px;
+        margin-right: -60px; 
     }
 }
 
-@for $i from 1 through 3 {
+.col {
+    width: 100%;
+    @include media(min-md){
+        padding-left: 32.5px;
+        padding-right: 32.5px; 
+    }
+
+    @include media(min-xl){
+        padding-left: 60px;
+        padding-right: 60px; 
+    }
+}
+
+
+@for $i from 2 through 3 {
     .col-md-#{$i} {
         @include media(min-md){
-            grid-template-columns: repeat($i, 1fr);
+            width: percentage(1 / $i);
+        }
+    }
+
+    .col-lg-#{$i} {
+        @include media(min-lg){
+            width: percentage(1 / $i);
         }
     }
     
     .col-xl-#{$i} {
         @include media(min-xl){
-            grid-template-columns: repeat($i, 1fr);
+            width: percentage(1 / $i);
+        }
+    }
+
+    .col-xxl-#{$i} {
+        @include media(min-xxl){
+            width: percentage(1 / $i);
         }
     }
 }

@@ -15,10 +15,10 @@ export default class NavigationTile extends Component {
     }
 
     render() {
-        const { url, title, featuredImage, imagePadding } = this.props;
+        const { columns, url, title, featuredImage, imagePadding } = this.props;
 
         return (
-            <article className={['navigation-tile' + (this.state.loaded ? ' loaded' : ' loading')]}>
+            <article className={[columns + ' navigation-tile' + (this.state.loaded ? ' loaded' : ' loading')]}>
                 <Link to={url}>
                     <div className="navigation-tile-image-holder">
                         <div

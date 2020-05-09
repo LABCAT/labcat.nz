@@ -7,11 +7,12 @@ export default function AudioProjectsHolder() {
     return (
         <section className="container">
             <h1>{audioPage.title.rendered}</h1>
-            <div className="grid col-md-1 col-xl-3">
+            <div className="grid">
                 {
                     audioProjects.map(
                         project => (
                             <NavigationTile
+                                columns='col col-xl-2 col-xxl-3'
                                 url={`/${audioPage.slug}/${project.slug}/`}
                                 title={project.title}
                                 featuredImage={project.featuredImage}

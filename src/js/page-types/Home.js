@@ -21,11 +21,12 @@ export default function Home() {
             <div className="home-page-fixed">
                 <div id="content" className="home-page-content">
                     <div className="container">
-                        <div className="grid col-md-1 col-xl-2">
+                        <div className="grid">
                             {
                                 children.map(
                                     page => (
                                         <NavigationTile
+                                            columns='col col-xl-2'
                                             url={`/${page.slug}/`}
                                             title={page.title}
                                             featuredImage={page.featuredImage}
