@@ -49,14 +49,14 @@
     transition: all 1s;
     -webkit-text-stroke: 3px $dark-blue;
 
+    &:hover {
+        text-shadow: $pink-shadow;
+    }
+
     @include media(min-md){
         display: inline;
         width: auto;
         padding: 18px 0 8px;
-    }
-
-    &:hover {
-        text-shadow: $pink-shadow;
     }
 
     @include media(min-xxl){
@@ -66,7 +66,23 @@
     .is-home & {
         display: block;
         width: 100%;
-        font-size: 14.4rem;
+        padding: 32px 0 0;
+        font-size: 7.2rem;
+        line-height: 0.8;
         text-align: center;
+
+        @include media(min-md){
+            font-size: 10.8rem;
+        }
+
+        @include media(min-xl){
+            font-size: 14.4rem;
+        }
     }
+}
+
+.subtitle {
+    @include media(min-xl){
+        margin-top: -8px;
+    }  
 }

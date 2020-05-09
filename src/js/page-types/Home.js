@@ -1,25 +1,58 @@
-import React, { Fragment, useEffect  }  from 'react'
-import { useRouteData } from 'react-static'
+import React, { useState, useEffect  }  from 'react';
+import { useRouteData } from 'react-static';
 import NavigationTile from '../components/NavigationTile.js';
-import SplashBackground from '../components/SplashBackground.js';
+
+
 
 export default function Home() {
     const { home, children } = useRouteData();
-    
+    const [loaded, setLoaded] = useState(false);
+    const [translate, setTranslate] = useState(0);
+
 
     useEffect(
         () => {
-            const minHeight = document.getElementById('splash').clientHeight * 2;   
-            const bodyHeight = document.getElementById('splash').clientHeight + document.getElementById('content').clientHeight;
+            const splashHeight = document.getElementById('hero').clientHeight;
+            const minHeight = splashHeight * 2;   
+            const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
             document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
+            window.addEventListener(
+                'scroll', 
+                function () {
+                    const doc = document.documentElement;
+                    const scrollPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                    if (scrollPos > splashHeight){
+                        setTranslate(-(scrollPos - splashHeight));
+                    }
+                    else {
+                        setTranslate(0);
+                    }
+                }
+            );
         }
     );
     
     return (
         <section className="home-page">
-            <SplashBackground image={home.featuredImage} />
-            <div className="home-page-fixed">
-                <div id="content" className="home-page-content">
+            <div
+                id="hero"
+                className="home-page-hero"
+            >
+                <div
+                    className={['home-page-hero-image' + (loaded ? ' loaded' : ' loading')]}
+                    style={{ backgroundImage: "url(" + home.featuredImage + ")" }}
+                >
+                </div>
+                <div className="overlay"></div>
+                {!loaded &&
+                    <img
+                    src={home.featuredImage || ''}
+                        onLoad={() => setLoaded(true)}
+                    />
+                }
+            </div>
+            <div className="home-page-content-holder">
+                <div id="content" className="home-page-content" style={{ transform: "translateY(" + translate + "px)" }}>
                     <div className="container">
                         <div className="grid">
                             {
