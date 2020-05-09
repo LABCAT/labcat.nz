@@ -11,7 +11,9 @@
     }
 
     &.show-border {
-        border-bottom: 4px solid $light-blue;
+        @include media(min-md){
+            border-bottom: 4px solid $light-blue;
+        }
     }
 
     nav {
@@ -37,13 +39,21 @@
 }
 
 .logo {
-    padding: 18px 0 8px;
+    display: block;
+    width: 100%;
+    padding: 32px 0 8px;
     font-family: 'Teko', sans-serif;
     font-size: 7.2rem;
     line-height: 1;
     text-shadow: $light-shadow;
     transition: all 1s;
     -webkit-text-stroke: 3px $dark-blue;
+
+    @include media(min-md){
+        display: inline;
+        width: auto;
+        padding: 18px 0 8px;
+    }
 
     &:hover {
         text-shadow: $pink-shadow;

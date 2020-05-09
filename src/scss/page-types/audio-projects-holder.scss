@@ -1,8 +1,18 @@
 .audio-projects-holder {
+    h1 {
+        @include media(min-md){
+            text-align: center;
+        }
+
+        @include media(min-lg){
+            text-align: left;
+        }
+    }
+    
     .navigation-tile {
         max-width: 465px;
         margin: 0 auto;
-
+        
         @include media(min-lg){
             max-width: none;
         }
