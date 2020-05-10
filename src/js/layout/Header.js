@@ -10,7 +10,7 @@ export default function Header(props) {
             </a>
             {
                 isHome &&
-                <span class='subtitle'>DIGITAL ARTIST</span>
+                <span className='subtitle'>DIGITAL ARTIST</span>
             }
             {
                 showNav && !isHome && 
