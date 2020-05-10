@@ -1,83 +1,25 @@
-$radius:1200px;
-$bgColour: black;
-$baseSize: 50px;
-$lineWidth: $baseSize/10;
-$gradient: 
-    black, 
-    #00FFFF,
-    #0CDBF5, 
-    #2592E1, 
-    #3564D5, 
-    #3B52D0, 
-    #3341AE, 
-    #1D1657, 
-    #1B114D
-;
-
 .loader {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 999999;
-    transform: rotate(270deg);
-}
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
 
-
-b { 
-  position:absolute;
-  left:50%;
-  top:50%;
-  &:before {
-    content:""; 
-    display:block; 
-    padding:$lineWidth; 
-    padding-bottom:0; 
-    box-sizing:border-box;
-    border-top-left-radius:$radius;
-    border-top-right-radius:$radius;
-    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right,black, $gradient);
-    background-clip:content-box,padding-box;
-  }
-  &:after {
-    content:""; 
-    display:block; 
-    padding:$lineWidth; 
-    padding-top:0; 
-    box-sizing:border-box;
-    border-bottom-left-radius:$radius;
-    border-bottom-right-radius:$radius;
-    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right, black, $gradient);
-    background-clip:content-box,padding-box;
-  }
-}
-
-@for $i from 1 through 20{
-  b:nth-of-type(#{$i}){
-    width:$baseSize * $i;
-    height:$baseSize * $i;
-    margin-left: -($baseSize * $i)/2;
-    margin-top: -($baseSize * $i)/2;
-    z-index:-1 *$i;
-    animation: rotate 4s ease-in-out -0.1s *$i infinite;
-    &:before,
-    &:after{
-      width:$baseSize * $i;
-      height:$baseSize/2 *$i; 
+    svg {
+        display: block;
+        margin: auto; 
+        width: 10rem;
+        height: 10rem;
+        background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;  
+        shape-rendering: auto;
     }
-  }
+
+    path {
+        fill: none;
+        stroke: $pink;
+        transform:scale(0.8);
+        transform-origin:50px 50px;
+    }
 }
-
-
-@keyframes rotate{
-  25%{
-    transform: rotate(360deg);
-    transform-origin: center;
-    -webkit-filter:hue-rotate(360deg);
-  }
-  50%,100%{
-    transform: rotate(0deg);
-    transform-origin: center;
-    -webkit-filter:hue-rotate(0deg);
-  }
-}
-

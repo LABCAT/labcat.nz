@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from '@reach/router';
+import Loader from './Loader.js';
 
 export default class NavigationTile extends Component {
     constructor(props) {
@@ -21,6 +22,9 @@ export default class NavigationTile extends Component {
             <article className={[columns + ' navigation-tile' + (this.state.loaded ? ' loaded' : ' loading')]}>
                 <Link to={url}>
                     <div className="navigation-tile-image-holder">
+                        {!this.state.loaded &&
+                            <Loader />
+                        }
                         <div
                             className={['navigation-tile-image' + (this.state.loaded ? ' loaded' : ' loading')]}
                             style={{ backgroundImage: "url(" + featuredImage + ")", paddingBottom: imagePadding + "%" }}

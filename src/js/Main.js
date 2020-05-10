@@ -42,14 +42,15 @@ export default class Main extends Component {
 
     render() {
         const path = window.location.pathname;
+        const isHome = path === '/' ? true : false;
         return (
             <React.Fragment>
                 <Header 
                     showNav={this.state.showHeaderNav}
-                    isHome={path === '/' ? true : false}
+                    isHome={isHome}
                 />
                 <main id="main" ref={this.main}>
-                    <React.Suspense fallback={<em>Loading...</em>}>
+                    <React.Suspense fallback={isHome ? '' : <Loader/>}>
                         <Router>
                             <Routes path="*" />
                         </Router>

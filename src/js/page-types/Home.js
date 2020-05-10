@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback }  from 'react';
 import { useRouteData } from 'react-static';
 import NavigationTile from '../components/NavigationTile.js';
+import Loader from '../components/Loader.js';
+
 
 
 
@@ -55,6 +57,9 @@ export default function Home() {
                 id="hero"
                 className="home-page-hero"
             >
+                {!loaded &&
+                    <Loader/>
+                }
                 <div
                     className={['home-page-hero-image' + (loaded ? ' loaded' : ' loading')]}
                     style={{ backgroundImage: "url(" + home.featuredImage + ")" }}

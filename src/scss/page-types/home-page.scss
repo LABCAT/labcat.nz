@@ -21,6 +21,10 @@
             opacity: 0;
             transition: opacity 0.75s;
 
+            img {
+                display: none;
+            }
+
             &.loaded {
                 opacity: 1;
             }
@@ -29,6 +33,10 @@
 
         .overlay {
             z-index: 2;
+        }
+
+        .loader {
+            z-index: 3;
         }
     }
 
