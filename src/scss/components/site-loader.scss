@@ -14,12 +14,29 @@ $gradient:
     #1B114D
 ;
 
-.loader {
+.site-loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $bgColour;
+  overflow: hidden;
+  z-index: 6;
+  opacity: 1;
+  transition: opacity 5s;
+  
+  &.loaded {
+    opacity: 0;
+  }
+  
+  &-inner {
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 999999;
     transform: rotate(270deg);
+  }
 }
 
 
@@ -35,7 +52,7 @@ b {
     box-sizing:border-box;
     border-top-left-radius:$radius;
     border-top-right-radius:$radius;
-    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right,black, $gradient);
+    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right,$bgColour, $gradient);
     background-clip:content-box,padding-box;
   }
   &:after {
@@ -46,7 +63,7 @@ b {
     box-sizing:border-box;
     border-bottom-left-radius:$radius;
     border-bottom-right-radius:$radius;
-    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right, black, $gradient);
+    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right, $bgColour, $gradient);
     background-clip:content-box,padding-box;
   }
 }

@@ -6,19 +6,22 @@ class SiteLoader extends React.Component {
 
         for (let i = 1; i <= numOfCircles; i++) {
             circles.push(
-                <b></b>
+                <b key={i}></b>
             );
         }
         return circles;
     }
 
     render() {
+
         return (
-            <div className="loader">
-                {this.createCircles(this.props.circleCount)}
+            <div className={['site-loader' + (this.props.loaded ? ' loaded' : '')]}>
+                <div className="site-loader-inner">
+                    {this.createCircles(this.props.circleCount)}
+                </div>
             </div>
         );
     }
 }
 
-export default Loader;
+export default SiteLoader;

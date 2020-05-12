@@ -6,6 +6,7 @@ import { Router } from '@reach/router';
 import Header from './layout/Header.js';
 import Footer from './layout/Footer.js';
 import Loader from './components/Loader.js';
+import SiteLoader from './components/SiteLoader.js';
 
 export default class Main extends Component {
     constructor() {
@@ -13,10 +14,20 @@ export default class Main extends Component {
         this.main = React.createRef();
 
         this.state = {
+            hasLoaded: false,
             isHomePage: true,
             showHeaderNav: false,
             showFooter: false,
         }
+    }
+
+    componentDidMount(){
+        setTimeout(
+            () => {
+                this.setState({ hasLoaded: true });
+            }, 
+            2000
+        );
     }
 
     onResize = (width, height) => {
@@ -43,14 +54,16 @@ export default class Main extends Component {
     render() {
         const path = window.location.pathname;
         const isHome = path === '/' ? true : false;
+        console.log(this.state.hasLoaded);
         return (
             <React.Fragment>
-                <Header 
+                <SiteLoader circleCount="20" loaded={this.state.hasLoaded}/>
+                <Header
                     showNav={this.state.showHeaderNav}
                     isHome={isHome}
                 />
                 <main id="main" ref={this.main}>
-                    <React.Suspense fallback={isHome ? '' : <Loader/>}>
+                    <React.Suspense fallback={isHome ? '' : <Loader />}>
                         <Router primary={false}>
                             <Routes path="*" />
                         </Router>
