@@ -64,7 +64,7 @@ export default class Main extends Component {
                 />
                 <main id="main" ref={this.main}>
                     <React.Suspense fallback={isHome ? '' : <Loader />}>
-                        <Router primary={false}>
+                        <Router>
                             <Routes path="*" />
                         </Router>
                     </React.Suspense>

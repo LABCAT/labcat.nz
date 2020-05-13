@@ -5,6 +5,15 @@
 #main {
     min-height: 60vh;
     padding-bottom: 100px;
+
+    /* padding to allow for fixed header */
+    @include media(min-md){
+        padding-top: 102px;
+    }
+
+    @include media(min-xxl){
+        padding-top: 128px;
+    }
 }
 
 .container {

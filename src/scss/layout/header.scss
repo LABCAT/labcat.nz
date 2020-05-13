@@ -7,11 +7,17 @@
     padding: 0 20px;
 
     &.is-home {
+        z-index: 7;
         flex-direction: column;
     }
 
     &.show-border {
         @include media(min-md){
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(27, 17, 77, 0.74);
             border-bottom: 4px solid $light-blue;
         }
     }
