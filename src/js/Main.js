@@ -54,7 +54,6 @@ export default class Main extends Component {
     render() {
         const path = window.location.pathname;
         const isHome = path === '/' ? true : false;
-        console.log(this.state.hasLoaded);
         return (
             <React.Fragment>
                 <SiteLoader circleCount="20" loaded={this.state.hasLoaded}/>

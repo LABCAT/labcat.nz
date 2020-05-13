@@ -93,9 +93,9 @@ export default function Home() {
                                             title={page.title}
                                             featuredImage={page.featuredImage}
                                             imagePadding="52"
-                                            key={page.id}>
-                                            >
-                                        </NavigationTile>
+                                            key={page.id}
+                                            headinglevel="2"
+                                        />
                                     )
                                 )
                             }
