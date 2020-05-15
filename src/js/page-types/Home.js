@@ -3,46 +3,40 @@ import { useRouteData } from 'react-static';
 import NavigationTile from '../components/NavigationTile.js';
 import Loader from '../components/Loader.js';
 
-
-
-
 export default function Home() {
-    if(typeof document !== 'undefined') { 
-        return (
-            null
-        );
-    }
     const { home, children } = useRouteData();
     const [loaded, setLoaded] = useState(false);
     const [translate, setTranslate] = useState(0);
     const scrollToContent = useCallback(
         () => {
-            const splashHeight = document.getElementById('hero').clientHeight;
-            let i = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-            let interval = setInterval(
-                function(){ 
-                    window.scrollTo(0, i);
-                    if (i > splashHeight){
-                        clearInterval(interval);
-                    }
-                    i = i + 20;
-                }, 
-                10
-            );
+            if (typeof document !== 'undefined' && typeof window !== 'undefined') { 
+                const splashHeight = document.getElementById('hero').clientHeight;
+                let i = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
+                let interval = setInterval(
+                    function(){ 
+                        window.scrollTo(0, i);
+                        if (i > splashHeight){
+                            clearInterval(interval);
+                        }
+                        i = i + 20;
+                    }, 
+                    10
+                );
+            }
         }
     );
 
     useEffect(
         () => {
-            const splashHeight = document.getElementById('hero').clientHeight;
-            const minHeight = splashHeight * 2;   
-            const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
-            document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
-            if (typeof window !== 'undefined') {
+            if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+                const splashHeight = document.getElementById('hero').clientHeight;
+                const minHeight = splashHeight * 2;   
+                const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
+                document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
                 window.addEventListener(
                     'scroll', 
                     function () {
-                        const scrollPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                        const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
                         if (scrollPos > splashHeight){
                             setTranslate(-(scrollPos - splashHeight));
                         }

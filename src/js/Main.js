@@ -22,6 +22,21 @@ export default class Main extends Component {
     }
 
     componentDidMount(){
+        let isHomePage = false;
+        if (typeof window !== 'undefined') {
+            console.log(window.location.pathname);
+            isHomePage = window.location.pathname === '/' ? true : false;
+        }
+
+        console.log(isHomePage);
+
+        this.setState(
+            { 
+                ...this.state,
+                isHomePage
+            }
+        );
+
         setTimeout(
             () => {
                 this.setState({ hasLoaded: true });
@@ -52,20 +67,15 @@ export default class Main extends Component {
     };
 
     render() {
-        let path = '/';
-        if (typeof window !== 'undefined') {
-            path = window.location.pathname;
-        }
-        const isHome = path === '/' ? true : false;
         return (
             <React.Fragment>
                 <SiteLoader circleCount="20" loaded={this.state.hasLoaded}/>
                 <Header
                     showNav={this.state.showHeaderNav}
-                    isHome={isHome}
+                    isHome={this.state.isHomePage}
                 />
                 <main id="main" ref={this.main}>
-                    <React.Suspense fallback={isHome ? '' : <Loader />}>
+                    <React.Suspense fallback={this.state.isHomePage ? '' : <Loader />}>
                         <Router>
                             <Routes path="*" />
                         </Router>
