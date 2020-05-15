@@ -4,8 +4,16 @@ import { useSpring, animated } from 'react-spring'
 
 import Loader from './Loader.js';
 
-const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
-const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+let height = 1080;
+let width = 1920;
+
+if (typeof window !== 'undefined') {
+    height = window.innerHeight;
+    width = window.innerWidth;
+}
+
+const calc = (x, y) => [-(y - height / 2) / 20, (x - width / 2) / 20, 1.1];
+const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
 
 export default function NavigationTile(props) {
     

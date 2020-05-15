@@ -52,7 +52,10 @@ export default class Main extends Component {
     };
 
     render() {
-        const path = window.location.pathname;
+        let path = '/';
+        if (typeof window !== 'undefined') {
+            path = window.location.pathname;
+        }
         const isHome = path === '/' ? true : false;
         return (
             <React.Fragment>

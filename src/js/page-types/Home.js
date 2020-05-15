@@ -7,7 +7,11 @@ import Loader from '../components/Loader.js';
 
 
 export default function Home() {
-    const doc = document.documentElement;
+    if(typeof document !== 'undefined') { 
+        return (
+            null
+        );
+    }
     const { home, children } = useRouteData();
     const [loaded, setLoaded] = useState(false);
     const [translate, setTranslate] = useState(0);
@@ -34,18 +38,20 @@ export default function Home() {
             const minHeight = splashHeight * 2;   
             const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
             document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
-            window.addEventListener(
-                'scroll', 
-                function () {
-                    const scrollPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-                    if (scrollPos > splashHeight){
-                        setTranslate(-(scrollPos - splashHeight));
+            if (typeof window !== 'undefined') {
+                window.addEventListener(
+                    'scroll', 
+                    function () {
+                        const scrollPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+                        if (scrollPos > splashHeight){
+                            setTranslate(-(scrollPos - splashHeight));
+                        }
+                        else {
+                            setTranslate(0);
+                        }
                     }
-                    else {
-                        setTranslate(0);
-                    }
-                }
-            );
+                );
+            }
         }
     );
 
