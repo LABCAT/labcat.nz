@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-class SiteLoader extends React.Component {
-    createCircles = (numOfCircles) => {
+export default function SiteLoader(props) {
+
+    const createCircles = (numOfCircles) => {
         let circles = []
 
         for (let i = 1; i <= numOfCircles; i++) {
@@ -12,16 +13,12 @@ class SiteLoader extends React.Component {
         return circles;
     }
 
-    render() {
-
-        return (
-            <div className={['site-loader' + (this.props.loaded ? ' loaded' : '')]}>
-                <div className="site-loader-inner">
-                    {this.createCircles(this.props.circleCount)}
-                </div>
+    return (
+        <div className={['site-loader' + (props.loaded ? ' loaded' : '')]}>
+            <div className="site-loader-inner">
+                { createCircles(props.circleCount) }
             </div>
-        );
-    }
+        </div>
+    );
 }
 
-export default SiteLoader;

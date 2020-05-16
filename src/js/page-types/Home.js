@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useCallback }  from 'react';
 import { useRouteData } from 'react-static';
+
+import { Context } from '../context/Context.js';
+
 import NavigationTile from '../components/NavigationTile.js';
 import Loader from '../components/Loader.js';
 
-export default function Home() {
+export default function Home(props) {
     const { home, children } = useRouteData();
     const [loaded, setLoaded] = useState(false);
     const [translate, setTranslate] = useState(0);
+
     const scrollToContent = useCallback(
         () => {
             if (typeof document !== 'undefined' && typeof window !== 'undefined') { 
@@ -49,8 +53,6 @@ export default function Home() {
         }
     );
 
-    
-    
     return (
         <section className="home-page">
             <div
