@@ -20,7 +20,6 @@ function Main() {
         showFooter,
         setWindowWidth, 
         toggleIsHomePage, 
-        toggleLoadedState, 
         toggleShowHeaderNav,
         toggleShowFooter
     } = useContext(Context)
@@ -49,19 +48,14 @@ function Main() {
                     toggleIsHomePage(currentPageIsHomePage);
                 }
             }
-
-            setTimeout(
-                () => {
-                    toggleLoadedState(true);
-                }, 
-                2000
-            );
         }
     );
 
     return (
         <React.Fragment>
-            <SiteLoader circleCount="20" loaded={hasLoaded} />
+            {!hasLoaded &&
+                <SiteLoader circleCount="20" />
+            }
             <Header
                 isHome={isHomePage}
                 showNav={showHeaderNav}

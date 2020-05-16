@@ -18,8 +18,8 @@ export const GlobalContextProvider = ({ children }) => {
         dispatch({ type: "SET_WINDOW_WIDTH", payload: newWidth });
     }
 
-    const toggleLoadedState = (newState) => {
-        dispatch({ type: "SET_HAS_LOADED", payload: newState });
+    const completeLoading = () => {
+        dispatch({ type: "SET_HAS_LOADED", payload: true });
     }
 
     const toggleIsHomePage = (newState) => {
@@ -43,7 +43,7 @@ export const GlobalContextProvider = ({ children }) => {
                         showHeaderNav: state.showHeaderNav,
                         showFooter: state.showFooter,
                         setWindowWidth,
-                        toggleLoadedState,
+                        completeLoading,
                         toggleIsHomePage,
                         toggleShowHeaderNav,
                         toggleShowFooter
