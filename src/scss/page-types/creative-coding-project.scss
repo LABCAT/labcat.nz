@@ -29,4 +29,13 @@
         }
     }
 
+    &-browser-message {
+        margin: 0 20px;
+
+        @include media(min-md){
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
 }
