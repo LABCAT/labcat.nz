@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback }  from 'react';
+import React, { useContext, useState, useEffect, useCallback }  from 'react';
 import { useRouteData } from 'react-static';
 
 import { Context } from '../context/Context.js';
@@ -7,6 +7,7 @@ import NavigationTile from '../components/NavigationTile.js';
 import Loader from '../components/Loader.js';
 
 export default function Home(props) {
+    const { hasLoaded, isHomePage } = useContext(Context)
     const { home, children } = useRouteData();
     const [loaded, setLoaded] = useState(false);
     const [translate, setTranslate] = useState(0);
@@ -30,25 +31,34 @@ export default function Home(props) {
         }
     );
 
+    const windowScroll = () => {
+        if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+            const splashHeight = document.getElementById('hero').clientHeight;
+            const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
+            if (scrollPos > splashHeight) {
+                setTranslate(-(scrollPos - splashHeight));
+            }
+            else {
+                setTranslate(0);
+            }
+        }
+    }
+
     useEffect(
         () => {
-            if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+            if (typeof document !== 'undefined' && typeof window !== 'undefined' && hasLoaded) {
                 const splashHeight = document.getElementById('hero').clientHeight;
-                const minHeight = splashHeight * 2;   
+                const minHeight = splashHeight * 2;
                 const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
                 document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
                 window.addEventListener(
-                    'scroll', 
-                    function () {
-                        const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
-                        if (scrollPos > splashHeight){
-                            setTranslate(-(scrollPos - splashHeight));
-                        }
-                        else {
-                            setTranslate(0);
-                        }
-                    }
+                    'scroll',
+                    windowScroll
                 );
+                return () => {
+                    document.body.style.height = 'auto';
+                    window.removeEventListener('scroll', windowScroll);
+                }
             }
         }
     );

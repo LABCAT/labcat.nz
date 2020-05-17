@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import ResizeDetector  from 'react-resize-detector';
 import { Root, Routes } from 'react-static'
-import { Router } from '@reach/router';
+import { Router, Location } from '@reach/router';
 
 import { Context } from '../context/Context.js';
 
@@ -9,6 +9,11 @@ import Header from '../layout/Header.js';
 import Footer from '../layout/Footer.js';
 import Loader from '../components/Loader.js';
 import SiteLoader from '../components/SiteLoader.js';
+
+export const ScrollToTop = ({ children, location }) => {
+    React.useLayoutEffect(() => window.scrollTo(0, 0), [location.pathname]);
+    return children;
+;}
 
 function Main() {
     let main = React.useRef();
@@ -22,7 +27,7 @@ function Main() {
         toggleIsHomePage, 
         toggleShowHeaderNav,
         toggleShowFooter
-    } = useContext(Context)
+    } = useContext(Context);
     
     const onResize = (width, height) => {
         let showHeaderNav = null;
@@ -39,6 +44,7 @@ function Main() {
         toggleShowHeaderNav(showHeaderNav);
         toggleShowFooter(showFooter);
     };
+
 
     useEffect(
         () => {
@@ -63,7 +69,19 @@ function Main() {
             <main id="main" ref={main}>
                 <React.Suspense fallback={isHomePage ? '' : <Loader />}>
                     <Router>
-                        <Routes path="*" />
+                        <ScrollToTop path="*">
+                            <Routes
+                                path="*"
+                                render={({ routePath, getComponentForPath }) => {
+                                    // The routePath is used to retrieve the component for that path
+                                    console.log(routePath);
+                                    
+                                    const element = getComponentForPath(routePath);
+                                    console.log(element);
+                                    return element;
+                                }}
+                            />
+                        </ScrollToTop>
                     </Router>
                 </React.Suspense>
                 <ResizeDetector handleWidth handleHeight onResize={onResize} targetDomEl={main.current} />

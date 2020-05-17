@@ -5,9 +5,9 @@ export default function Header(props) {
     const { showNav, isHome } = props;
     return (
         <header id="site-header" className={isHome ? 'is-home' : 'show-border'}>
-            <a href="/" className="logo">
+            <Link to="/" className="logo">
                 LABCAT
-            </a>
+            </Link>
             {
                 isHome &&
                 <span className='subtitle'>DIGITAL ARTIST</span>
