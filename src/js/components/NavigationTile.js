@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from '@reach/router';
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated } from 'react-spring';
 
 import Loader from './Loader.js';
 
