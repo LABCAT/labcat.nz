@@ -24,11 +24,7 @@ $gradient:
   overflow: hidden;
   z-index: 6;
   opacity: 1;
-  transition: opacity 5s;
-  
-  &.fade-out {
-    opacity: 0;
-  }
+ 
   
   &-inner {
     position: absolute;

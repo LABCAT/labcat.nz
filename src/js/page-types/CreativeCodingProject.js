@@ -5,8 +5,8 @@ import { useRouteData } from 'react-static';
 import { Context } from '../context/Context.js';
 
 export default function CreativeCodingProject() {
-    const { windowWidth } = useContext(Context);
     const { project } = useRouteData();
+    const { windowWidth } = useContext(Context);
     const showProject = windowWidth >= 992 ? true : false;
     return (
         <section className="creative-coding-project">

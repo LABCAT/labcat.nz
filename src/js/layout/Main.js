@@ -87,9 +87,9 @@ function Main() {
                                         <Transition
                                             native
                                             items={routePath}
-                                            from={{ transform: 'translateY(100px)', opacity: 0 }}
+                                            from={{ transform: 'translateY(100px)', opacity: 1 }}
                                             enter={{ transform: 'translateY(0px)', opacity: 1 }}
-                                            leave={{ transform: 'translateY(100px)', opacity: 0 }}
+                                            leave={{ transform: 'translateY(100px)', opacity: 1 }}
                                         >
                                             {item => props => {
                                                 return <animated.div style={props}>{element}</animated.div>

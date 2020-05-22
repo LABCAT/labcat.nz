@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Spring } from 'react-spring/renderprops.cjs';
+import * as easings from 'd3-ease';
 
 import { Context } from '../context/Context.js';
 
 export default function SiteLoader(props) {
     const { completeLoading } = useContext(Context);
-    const [fadeOut, setFadeOut] = useState(false);
-    const [fadeCompleted, setFadeCompleted] = useState(false);
 
     const createCircles = (numOfCircles) => {
         let circles = []
@@ -18,34 +18,32 @@ export default function SiteLoader(props) {
         return circles;
     }
 
-    useEffect(
-        () => {
-            if (!fadeOut){
-                setTimeout(
-                    () => {
-                        setFadeOut(true);
-                    },
-                    2000
-                );
-            }
-            if (fadeOut && !fadeCompleted){
-                setTimeout(
-                    () => {
-                        completeLoading();
-                    },
-                    4000
-                );
-            }
-        },
-        [fadeOut, fadeCompleted]
-    );
-
     return (
-        <div className={['site-loader' + (fadeOut ? ' fade-out' : '')]}>
-            <div className="site-loader-inner">
-                { createCircles(props.circleCount) }
-            </div>
-        </div>
+        <Spring
+            from={{ opacity: 1 }}
+            to={{ opacity: 0 }}
+            delay={2000}
+            config={
+                {
+                    duration: 4000,
+                    easing: easings.easeLinear
+                }
+            }
+            onRest= {
+                () => {
+                    completeLoading();
+                }
+            } 
+        >
+            {styleProps => (
+                <div className="site-loader" style={styleProps}>
+                    <div className="site-loader-inner">
+                        {createCircles(props.circleCount)}
+                    </div>
+                </div>
+            )}
+        </Spring>
+        
     );
 }
 
