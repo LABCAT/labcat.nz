@@ -2,6 +2,9 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import ResizeDetector  from 'react-resize-detector';
 import { Root, Routes } from 'react-static'
 import { Router, Location } from '@reach/router';
+//need cjs version for some reason:
+//https://github.com/facebook/jest/issues/8186
+import { Transition, animated } from 'react-spring/renderprops.cjs';
 
 import { Context } from '../context/Context.js';
 
@@ -74,11 +77,25 @@ function Main() {
                                 path="*"
                                 render={({ routePath, getComponentForPath }) => {
                                     // The routePath is used to retrieve the component for that path
-                                    console.log(routePath);
-                                    
                                     const element = getComponentForPath(routePath);
-                                    console.log(element);
-                                    return element;
+
+                                    if (isHomePage) {
+                                        return element;
+                                    }
+                                    
+                                    return (
+                                        <Transition
+                                            native
+                                            items={routePath}
+                                            from={{ transform: 'translateY(100px)', opacity: 0 }}
+                                            enter={{ transform: 'translateY(0px)', opacity: 1 }}
+                                            leave={{ transform: 'translateY(100px)', opacity: 0 }}
+                                        >
+                                            {item => props => {
+                                                return <animated.div style={props}>{element}</animated.div>
+                                            }}
+                                        </Transition>
+                                    )
                                 }}
                             />
                         </ScrollToTop>
