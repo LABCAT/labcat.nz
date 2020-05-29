@@ -4,7 +4,7 @@ import { Root, Routes } from 'react-static'
 import { Router, Location } from '@reach/router';
 //need cjs version for some reason:
 //https://github.com/facebook/jest/issues/8186
-import { Transition, animated } from 'react-spring/renderprops.cjs';
+import { Transition, animated, config } from 'react-spring/renderprops.cjs';
 
 import { Context } from '../context/Context.js';
 
@@ -78,18 +78,39 @@ function Main() {
                                 render={({ routePath, getComponentForPath }) => {
                                     // The routePath is used to retrieve the component for that path
                                     const element = getComponentForPath(routePath);
-
+                                    
                                     if (isHomePage) {
                                         return element;
+                                    }
+
+                                    let from = {}
+                                    let enter = {}
+
+                                    if (element.type.template.includes('CreativeCodingProject')){
+                                        from = { opacity: 0, transform: 'translateY(-500px)' }
+                                        enter = { opacity: 1, transform: 'translateY(0px)' }
+                                    }
+
+                                    if (element.type.template.includes('AudioProject')) {
+                                        from = { opacity: 0, transform: 'translateX(2000px)' }
+                                        enter = { opacity: 1, transform: 'translateX(0px)' }
+                                    }
+
+                                    if (
+                                        element.type.template.includes('CreativeCodingProjectsHolder') ||
+                                        element.type.template.includes('AudioProjectsHolder') 
+                                    ) {
+                                        from = { opacity: 0, transform: 'scale(0.5)' }
+                                        enter = { opacity: 1, transform: 'scale(1)' }
                                     }
                                     
                                     return (
                                         <Transition
                                             native
                                             items={routePath}
-                                            from={{ transform: 'translateY(100px)', opacity: 1 }}
-                                            enter={{ transform: 'translateY(0px)', opacity: 1 }}
-                                            leave={{ transform: 'translateY(100px)', opacity: 1 }}
+                                            from={from}
+                                            enter={enter}
+                                            leave={{ display: 'none' }}
                                         >
                                             {item => props => {
                                                 return <animated.div style={props}>{element}</animated.div>
