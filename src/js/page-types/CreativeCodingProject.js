@@ -8,6 +8,23 @@ export default function CreativeCodingProject() {
     const { project } = useRouteData();
     const { windowWidth } = useContext(Context);
     const showProject = windowWidth >= 992 ? true : false;
+
+    if (typeof document !== 'undefined') {
+        let myIframe = document.querySelector('iframe');
+        if (myIframe && myIframe.src.includes('html')) {
+            let myIframeSrc = myIframe.src;
+            myIframe.src = '';
+            //add a short delay to the loading of the iframe so the react spring animation remains smooth
+            setTimeout(
+                function () { 
+                    myIframe.src = myIframeSrc;
+                    myIframe.className = 'loaded';
+                }, 
+                300
+            );
+        }
+    }
+
     return (
         <section className="creative-coding-project">
             <h1 dangerouslySetInnerHTML={{ __html: project.title.rendered }} >

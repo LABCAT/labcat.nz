@@ -25,6 +25,12 @@
             iframe {
                 display: block;
                 border: 3px solid $white;
+                opacity: 0;
+                transition: opacity 1.5s;
+
+                &.loaded {
+                    opacity: 1;
+                }
             }
         }
     }

@@ -24,7 +24,7 @@ export default class AudioProjectTile extends Component {
     render() {
         const { featuredImage, content } = this.props;
         if (typeof document !== 'undefined') {
-        let myIframe = document.querySelector('iframe');
+            let myIframe = document.querySelector('iframe');
             if (myIframe){
                 myIframe.onload = () => {
                     this.setState(
