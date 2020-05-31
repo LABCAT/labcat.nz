@@ -13,11 +13,6 @@ import Footer from '../layout/Footer.js';
 import Loader from '../components/Loader.js';
 import SiteLoader from '../components/SiteLoader.js';
 
-export const ScrollToTop = ({ children, location }) => {
-    React.useLayoutEffect(() => window.scrollTo(0, 0), [location.pathname]);
-    return children;
-;}
-
 function Main() {
     let main = React.useRef();
 
@@ -83,25 +78,19 @@ function Main() {
                                         return element;
                                     }
 
-                                    let from = {}
-                                    let enter = {}
 
-                                    if (element.type.template.includes('CreativeCodingProject')){
+                                    const pageTemplate = pageTypeComponentName(element);
+                                    let from = { opacity: 0, transform: 'scale(0.5)' }
+                                    let enter = { opacity: 1, transform: 'scale(1)' }
+
+                                    if (pageTemplate === 'CreativeCodingProject'){
                                         from = { opacity: 0, transform: 'translateY(-500px)' }
                                         enter = { opacity: 1, transform: 'translateY(0px)' }
                                     }
 
-                                    if (element.type.template.includes('AudioProject')) {
+                                    if (pageTemplate === 'AudioProject') {
                                         from = { opacity: 0, transform: 'translateX(2000px)' }
                                         enter = { opacity: 1, transform: 'translateX(0px)' }
-                                    }
-
-                                    if (
-                                        element.type.template.includes('CreativeCodingProjectsHolder') ||
-                                        element.type.template.includes('AudioProjectsHolder') 
-                                    ) {
-                                        from = { opacity: 0, transform: 'scale(0.5)' }
-                                        enter = { opacity: 1, transform: 'scale(1)' }
                                     }
                                     
                                     return (
@@ -130,3 +119,21 @@ function Main() {
 }
 
 export default Main;
+
+
+/* these two functions should really be moved to their own files, even though this is the only component they are used in. */
+
+export const ScrollToTop = ({ children, location }) => {
+    //ensures that the scroll position will always begin at the top when a route changes 
+    React.useLayoutEffect(() => window.scrollTo(0, 0), [location.pathname]);
+    return children;
+}
+
+export const pageTypeComponentName = (element) => {
+    //required to get component name when site is running as the static build
+    if (element.type.template) {
+        const index = element.type.template.lastIndexOf('/') + 1;
+        return element.type.template.substring(index);
+    }
+    return element.type.name;
+}
