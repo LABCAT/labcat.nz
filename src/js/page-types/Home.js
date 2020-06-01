@@ -33,13 +33,16 @@ export default function Home(props) {
 
     const windowScroll = () => {
         if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-            const splashHeight = document.getElementById('hero').clientHeight;
-            const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
-            if (scrollPos > splashHeight) {
-                setTranslate(-(scrollPos - splashHeight));
-            }
-            else {
-                setTranslate(0);
+            const hero = document.getElementById('hero');
+            if (hero) {
+                const splashHeight = document.getElementById('hero').clientHeight;
+                const scrollPos = (window.pageYOffset || document.documentElement.scrollTop) - (document.documentElement.clientTop || 0);
+                if (scrollPos >= splashHeight) {
+                    setTranslate(-(scrollPos - splashHeight));
+                }
+                else {
+                    setTranslate(0);
+                }
             }
         }
     }
@@ -47,17 +50,16 @@ export default function Home(props) {
     useEffect(
         () => {
             if (typeof document !== 'undefined' && typeof window !== 'undefined' && hasLoaded) {
-                const splashHeight = document.getElementById('hero').clientHeight;
-                const minHeight = splashHeight * 2;
-                const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
-                document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
-                window.addEventListener(
-                    'scroll',
-                    windowScroll
-                );
-                return () => {
-                    document.body.style.height = 'auto';
-                    window.removeEventListener('scroll', windowScroll);
+                const hero = document.getElementById('hero');
+                if(hero){
+                    const splashHeight = hero.clientHeight;
+                    const minHeight = splashHeight * 2;
+                    const bodyHeight = splashHeight + document.getElementById('content').clientHeight;
+                    document.body.style.height = Math.max(minHeight, bodyHeight) + 'px';
+                    window.addEventListener(
+                        'scroll',
+                        windowScroll
+                    );
                 }
             }
         }
@@ -69,9 +71,6 @@ export default function Home(props) {
                 id="hero"
                 className="home-page-hero"
             >
-                {!loaded &&
-                    <Loader/>
-                }
                 <div
                     className={['home-page-hero-image' + (loaded ? ' loaded' : ' loading')]}
                     style={{ backgroundImage: "url(" + home.featuredImage + ")" }}
