@@ -50,6 +50,12 @@
         justify-content: center;
         width: 100%;
         font-size: 3.2rem;
+        opacity: 0;
+        transition: opacity 0.75s;
+
+        &.loaded {
+            opacity: 1;
+        }
 
         &:hover span {
             text-shadow: $pink-shadow;

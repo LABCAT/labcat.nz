@@ -83,7 +83,7 @@ export default function Home(props) {
                     }
                 </div>
                 <div className="overlay"></div>
-                <button className="home-page-cta" onClick={scrollToContent}>
+                <button className={['home-page-cta' + (hasLoaded ? ' loaded' : '')]} onClick={scrollToContent}>
                     <span>EXPLORE</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M 16.59,6.59 12,11.17 7.41,6.59 6,8 l 6,6 6,-6 z" />
