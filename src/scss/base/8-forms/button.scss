@@ -7,12 +7,10 @@
 button {
     background: transparent;
     color: $white;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
     border: none;
     outline:none;
     font-family: 'Orbitron', sans-serif;
     cursor: pointer;
-
-    &:active {
-        transform: scale(0.99);
-    }
 }
