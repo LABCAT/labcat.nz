@@ -73,7 +73,7 @@ function Main() {
                                 render={({ routePath, getComponentForPath }) => {
                                     // The routePath is used to retrieve the component for that path
                                     const element = getComponentForPath(routePath);
-                                    
+
                                     if (isHomePage) {
                                         return element;
                                     }
@@ -131,6 +131,9 @@ export const ScrollToTop = ({ children, location }) => {
 
 export const pageTypeComponentName = (element) => {
     //required to get component name when site is running as the static build
+    if (! element) {
+        return '';
+    }
     if (element.type.template) {
         const index = element.type.template.lastIndexOf('/') + 1;
         return element.type.template.substring(index);

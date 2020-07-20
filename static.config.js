@@ -22,7 +22,7 @@ export default {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Teko:wght@700&display=swap" rel="stylesheet" /> 
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap" rel="stylesheet" /> 
       </Head>
       <div className="overlay overlay-fixed"></div>
       <Body>
@@ -45,6 +45,11 @@ export default {
     const audioPage = pages.find(page => page.reactComponent === 'AudioProjectsHolder');
     const { data: audioProjects } = await axios.get(
       'http://mysite.labcat.nz/wp-json/wp/v2/audio-projects'
+    );
+
+    const buildingBlockPage = pages.find(page => page.reactComponent === 'BuildingBlocksHolder');
+    const { data: buildingBlocks } = await axios.get(
+      'http://mysite.labcat.nz/wp-json/wp/v2/posts'
     );
 
     return [
@@ -75,6 +80,29 @@ export default {
               getData: () => (
                 {
                   project,
+                }
+              ),
+            }
+          )
+        ),
+      },
+      {
+        path: '/building-blocks',
+        template: 'src/js/page-types/BuildingBlocksHolder',
+        getData: () => (
+          {
+            buildingBlockPage,
+            buildingBlocks,
+          }
+        ),
+        children: buildingBlocks.map(
+          buildingBlock => (
+            {
+              path: `/${buildingBlock.slug}`,
+              template: 'src/js/page-types/BuildingBlock',
+              getData: () => (
+                {
+                  buildingBlock,
                 }
               ),
             }

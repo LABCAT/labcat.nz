@@ -18,6 +18,7 @@
 //page spefic styles
 @import "./page-types/audio-project";
 @import "./page-types/audio-projects-holder";
+@import "./page-types/building-block";
 @import "./page-types/creative-coding-project";
 @import "./page-types/home-page";
 
@@ -27,4 +28,5 @@
 @import "./utils/editor-content";
 
 // blocks - styling for specifc blocks output by WordPress's gutenberg editor 
+@import "./blocks/embeds";
 @import "./blocks/gallery";

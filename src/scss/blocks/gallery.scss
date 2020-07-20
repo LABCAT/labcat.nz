@@ -8,6 +8,8 @@
 
         @include media(min-md){
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         li {
@@ -17,6 +19,11 @@
                 padding: 0.4rem;
             }
         }
+    }
+
+
+    img {
+        width: 100%;
     }
 
     &.columns-3 {
