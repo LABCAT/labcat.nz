@@ -6,7 +6,6 @@ import { Context } from '../context/Context.js';
 
 export default function BuildingBlock() {
     const { buildingBlock } = useRouteData();
-    const { windowWidth } = useContext(Context);
 
     return (
         <section className="building-block">
