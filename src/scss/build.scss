@@ -5,11 +5,11 @@
 //base - all html elements
 @import "./base/_index";
 
-// components - search form, hamburger button etc 
+// components - search form, hamburger button etc
 @import "./components/loader";
 @import "./components/navigation-tile";
 @import "./components/site-loader";
- 
+
 //layout - to level layout of your website
 @import "./layout/footer";
 @import "./layout/header";
@@ -18,7 +18,6 @@
 //page spefic styles
 @import "./page-types/audio-project";
 @import "./page-types/audio-projects-holder";
-@import "./page-types/building-block";
 @import "./page-types/creative-coding-project";
 @import "./page-types/home-page";
 
@@ -27,6 +26,6 @@
 @import "./utils/overlay";
 @import "./utils/editor-content";
 
-// blocks - styling for specifc blocks output by WordPress's gutenberg editor 
+// blocks - styling for specifc blocks output by WordPress's gutenberg editor
 @import "./blocks/embeds";
 @import "./blocks/gallery";

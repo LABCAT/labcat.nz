@@ -1,141 +1,94 @@
-import React from 'react';
-import axios from 'axios'
-
+import React from "react";
+import axios from "axios";
 
 const globalData = {
-  title: 'LABCAT',
-  subtitle: 'DIGITAL ARTIST',
-  menu: ['creative-coding', 'audio']
-}
+  title: "LABCAT",
+  subtitle: "DIGITAL ARTIST",
+  menu: ["creative-coding", "audio"],
+};
 
 export default {
-  Document: (
-    {
-      Html,
-      Head,
-      Body,
-      children,
-      state: { siteData, renderMeta },
-    }
-  ) => (
+  Document: ({
+    Html,
+    Head,
+    Body,
+    children,
+    state: { siteData, renderMeta },
+  }) => (
     <Html lang="en-US">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap" rel="stylesheet" /> 
+        <link
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <div className="overlay overlay-fixed"></div>
-      <Body>
-        {children}
-      </Body>
+      <Body>{children}</Body>
     </Html>
   ),
   getRoutes: async () => {
     const { data: pages } = await axios.get(
-      'http://mysite.labcat.nz/wp-json/wp/v2/pages'
+      "http://mysite.labcat.nz/wp-json/wp/v2/pages"
     );
-    const home = pages.find(page => page.slug === 'home');
-    const children = pages.filter(page => page.slug !== 'home');
+    const home = pages.find((page) => page.slug === "home");
+    const children = pages.filter((page) => page.slug !== "home");
 
-    const creativeCodingPage = pages.find(page => page.reactComponent === 'CreativeCodingProjectsHolder');
+    const creativeCodingPage = pages.find(
+      (page) => page.reactComponent === "CreativeCodingProjectsHolder"
+    );
     const { data: codeProjects } = await axios.get(
-      'http://mysite.labcat.nz/wp-json/wp/v2/creative-coding'
+      "http://mysite.labcat.nz/wp-json/wp/v2/creative-coding"
     );
 
-    const audioPage = pages.find(page => page.reactComponent === 'AudioProjectsHolder');
+    const audioPage = pages.find(
+      (page) => page.reactComponent === "AudioProjectsHolder"
+    );
     const { data: audioProjects } = await axios.get(
-      'http://mysite.labcat.nz/wp-json/wp/v2/audio-projects'
-    );
-
-    const buildingBlockPage = pages.find(page => page.reactComponent === 'BuildingBlocksHolder');
-    const { data: buildingBlocks } = await axios.get(
-      'http://mysite.labcat.nz/wp-json/wp/v2/posts'
+      "http://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
     );
 
     return [
       {
-        path: '/',
+        path: "/",
         template: `src/js/page-types/Home`,
-        getData: () => (
-          {
-            home,
-            children,
-          }
-        )
+        getData: () => ({
+          home,
+          children,
+        }),
       },
       {
-        path: '/creative-coding',
-        template: 'src/js/page-types/CreativeCodingProjectsHolder',
-        getData: () => (
-          {
-            creativeCodingPage,
-            codeProjects,
-          }
-        ),
-        children: codeProjects.map(
-          project => (
-            {
-              path: `/${project.slug}`,
-              template: 'src/js/page-types/CreativeCodingProject',
-              getData: () => (
-                {
-                  project,
-                }
-              ),
-            }
-          )
-        ),
+        path: "/creative-coding",
+        template: "src/js/page-types/CreativeCodingProjectsHolder",
+        getData: () => ({
+          creativeCodingPage,
+          codeProjects,
+        }),
+        children: codeProjects.map((project) => ({
+          path: `/${project.slug}`,
+          template: "src/js/page-types/CreativeCodingProject",
+          getData: () => ({
+            project,
+          }),
+        })),
       },
       {
-        path: '/building-blocks',
-        template: 'src/js/page-types/BuildingBlocksHolder',
-        getData: () => (
-          {
-            buildingBlockPage,
-            buildingBlocks,
-          }
-        ),
-        children: buildingBlocks.map(
-          buildingBlock => (
-            {
-              path: `/${buildingBlock.slug}`,
-              template: 'src/js/page-types/BuildingBlock',
-              getData: () => (
-                {
-                  buildingBlock,
-                }
-              ),
-            }
-          )
-        ),
+        path: "/audio",
+        template: "src/js/page-types/AudioProjectsHolder",
+        getData: () => ({
+          audioPage,
+          audioProjects,
+        }),
+        children: audioProjects.map((project) => ({
+          path: `/${project.slug}`,
+          template: "src/js/page-types/AudioProject",
+          getData: () => ({
+            project,
+          }),
+        })),
       },
-      {
-        path: '/audio',
-        template: 'src/js/page-types/AudioProjectsHolder',
-        getData: () => (
-          {
-            audioPage,
-            audioProjects,
-          }
-        ),
-        children: audioProjects.map(
-          project => (
-            {
-              path: `/${project.slug}`,
-              template: 'src/js/page-types/AudioProject',
-              getData: () => (
-                {
-                  project,
-                }
-              ),
-            }
-          )
-        ),
-      },
-    ]
+    ];
   },
-  plugins: [
-    "react-static-plugin-sass", 
-    'react-static-plugin-reach-router'
-  ]
+  plugins: ["react-static-plugin-sass", "react-static-plugin-reach-router"],
 };
