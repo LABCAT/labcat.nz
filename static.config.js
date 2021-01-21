@@ -30,7 +30,7 @@ export default {
   ),
   getRoutes: async () => {
     const { data: pages } = await axios.get(
-      "http://mysite.labcat.nz/wp-json/wp/v2/pages"
+      "https://mysite.labcat.nz/wp-json/wp/v2/pages"
     );
     const home = pages.find((page) => page.slug === "home");
     const children = pages.filter((page) => page.slug !== "home");
@@ -39,16 +39,16 @@ export default {
       (page) => page.reactComponent === "CreativeCodingProjectsHolder"
     );
     const { data: codeProjects } = await axios.get(
-      "http://mysite.labcat.nz/wp-json/wp/v2/creative-coding"
+      "https://mysite.labcat.nz/wp-json/wp/v2/creative-coding"
     );
 
     const audioPage = pages.find(
       (page) => page.reactComponent === "AudioProjectsHolder"
     );
     const { data: audioProjects } = await axios.get(
-      "http://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
+      "https://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
     );
-
+    
     return [
       {
         path: "/",
