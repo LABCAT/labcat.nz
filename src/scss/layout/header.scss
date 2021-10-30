@@ -45,18 +45,28 @@
 }
 
 .logo {
+    position: relative;
     display: block;
     width: 100%;
     padding: 32px 0 8px;
+    color: transparent;
     font-family: 'Teko', sans-serif;
     font-size: 7.2rem;
     line-height: 1;
-    text-shadow: $light-shadow;
-    transition: all 1s;
-    -webkit-text-stroke: 3px $dark-blue;
+    text-shadow: $trans-shadow;
+    transition: text-shadow 1s;
+    
+    &--loaded {
+        text-shadow: $light-shadow;
 
-    &:hover {
-        text-shadow: $pink-shadow;
+        &:hover {
+            text-shadow: $pink-shadow;
+
+            .logo__filter {
+                -webkit-filter: drop-shadow( 0px 0px 8px $pink) blur(3px);
+                filter: drop-shadow( 0px 0px 8px $pink) blur(3px);
+            }
+        }
     }
 
     @include media(min-md){
@@ -83,6 +93,71 @@
 
         @include media(min-xl){
             font-size: 14.4rem;
+        }
+    }
+
+    &__shadow {
+        position: absolute;
+        z-index: -1;
+        top: 30px;
+        left: calc(50% - 105.5px);
+
+        @include media(min-md){
+            top: 15px;
+        }
+
+        @include media(min-xxl){
+            left: 0;
+        }
+
+        .is-home & {
+            top: 37px;
+
+            @include media(min-md){
+                left: calc(50% - 159px);
+            }
+
+            @include media(min-xl){
+                top: 42px;
+                left: calc(50% - 212px);
+            }
+        }
+    }
+
+    &__svg {
+        width: 212px;
+        transition: all 1s;
+
+        @include media(min-xxl){
+            width: 288px;
+        }
+
+        .is-home & {
+            @include media(min-md){
+                width: 318px;
+            }
+
+            @include media(min-xl){
+                width: 440px;
+            }
+        }
+    }
+    
+    &__filter {
+        -webkit-filter: drop-shadow( 0px 0px 8px $light-blue) blur(3px);
+        filter: drop-shadow( 0px 0px 8px $light-blue) blur(3px);
+        transition: all 1s;
+    }
+
+    &__letter {
+        stroke-width: 5px;
+
+        @include media(min-md){
+            stroke-width: 4px;
+        }
+
+        @include media(min-xl){
+            stroke-width: 3px;
         }
     }
 }

@@ -62,6 +62,7 @@ function Main() {
             }
             <Header
                 isHome={isHomePage}
+                hasLoaded={hasLoaded}
                 showNav={showHeaderNav}
             />
             <main id="main" ref={main}>
