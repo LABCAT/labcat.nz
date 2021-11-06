@@ -24,10 +24,9 @@ export default {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0C94B0" />
         <link rel="manifest" href="manifest.json" />
-        <link rel="icon" href="icons/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-        <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-        <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="icon.svg" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap"
           rel="stylesheet"
