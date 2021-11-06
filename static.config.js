@@ -7,6 +7,9 @@ const globalData = {
   menu: ["creative-coding", "audio"],
 };
 
+//https://web.dev/add-manifest/
+//https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
+
 export default {
   Document: ({
     Html,
@@ -19,7 +22,12 @@ export default {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="theme-color" content="#0C94B0" />
+        <link rel="manifest" href="manifest.json" />
+        <link rel="icon" href="icons/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+        <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
         <link
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap"
           rel="stylesheet"
@@ -49,7 +57,7 @@ export default {
     const { data: audioProjects } = await axios.get(
       "https://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
     );
-    
+
     return [
       {
         path: "/",

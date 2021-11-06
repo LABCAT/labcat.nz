@@ -1,0 +1,26 @@
+{
+  "short_name": "LABCAT",
+  "name": "LABCAT - Digital Artist",
+  "description": "Life Animated By Creative Audio Transmissions - Digital Art Created In New Zealand",
+  "icons": [
+    {
+      "src": "icons/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icons/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0C94B0",
+  "background_color": "#1B114D"
+}
