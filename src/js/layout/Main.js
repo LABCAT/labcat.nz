@@ -56,8 +56,6 @@ function Main() {
         }
     );
 
-    console.log(homePageHeroLoaded);
-
     return (
         <React.Fragment>
             {

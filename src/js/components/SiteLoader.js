@@ -18,8 +18,6 @@ export default function SiteLoader(props) {
         }
         return circles;
     }
-    console.log(homePageHeroLoaded);
-
     return (
         <React.Fragment>
             {

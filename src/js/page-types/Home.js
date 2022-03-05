@@ -74,8 +74,6 @@ export default function Home(props) {
             }
         }
     );
-    console.log(homePageHero);
-
     return (
         <section className="home-page">
             <div
