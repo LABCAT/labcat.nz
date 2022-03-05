@@ -6,6 +6,8 @@ const initialState = {
     windowWidth: 0,
     hasLoaded: false,
     isHomePage: true,
+    homePageHero: '',
+    homePageHeroLoaded: false,
     showHeaderNav: false,
     showFooter: false,
 }
@@ -26,6 +28,14 @@ export const GlobalContextProvider = ({ children }) => {
         dispatch({ type: "SET_IS_HOME_PAGE", payload: newState });
     }
 
+    const setHomePageHero = (newState) => {
+        dispatch({ type: "SET_HOME_PAGE_HERO", payload: newState });
+    }
+
+    const setHomePageHeroLoaded = (newState) => {
+        dispatch({ type: "SET_HOME_PAGE_HERO_LOADED", payload: newState });
+    }
+
     const toggleShowHeaderNav = (newState) => {
         dispatch({ type: "SET_SHOW_HEADER_NAV", payload: newState });
     }
@@ -40,11 +50,15 @@ export const GlobalContextProvider = ({ children }) => {
                         windowWidth: state.windowWidth,
                         hasLoaded: state.hasLoaded,
                         isHomePage: state.isHomePage,
+                        homePageHero: state.homePageHero,
+                        homePageHeroLoaded: state.homePageHeroLoaded,
                         showHeaderNav: state.showHeaderNav,
                         showFooter: state.showFooter,
                         setWindowWidth,
                         completeLoading,
                         toggleIsHomePage,
+                        setHomePageHero,
+                        setHomePageHeroLoaded,
                         toggleShowHeaderNav,
                         toggleShowFooter
                     }

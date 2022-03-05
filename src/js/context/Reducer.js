@@ -18,6 +18,18 @@ export default function reducer(state, action) {
                 isHomePage: action.payload
             }
         }
+        case "SET_HOME_PAGE_HERO": {
+            return {
+                ...state,
+                homePageHero: action.payload
+            }
+        }
+        case "SET_HOME_PAGE_HERO_LOADED": {
+            return {
+                ...state,
+                homePageHeroLoaded: action.payload
+            }
+        }
         case "SET_SHOW_HEADER_NAV": {
             return {
                 ...state,

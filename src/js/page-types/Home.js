@@ -4,12 +4,16 @@ import { useRouteData } from 'react-static';
 import { Context } from '../context/Context.js';
 
 import NavigationTile from '../components/NavigationTile.js';
-import Loader from '../components/Loader.js';
 
 export default function Home(props) {
-    const { hasLoaded, isHomePage } = useContext(Context)
+    const { 
+        hasLoaded, 
+        homePageHeroLoaded, 
+        setHomePageHeroLoaded, 
+        homePageHero, 
+        setHomePageHero 
+    } = useContext(Context)
     const { home, children } = useRouteData();
-    const [loaded, setLoaded] = useState(false);
     const [translate, setTranslate] = useState(0);
 
     const scrollToContent = useCallback(
@@ -49,6 +53,12 @@ export default function Home(props) {
 
     useEffect(
         () => {
+            if(!homePageHero) {
+                const heroImage = home.featuredImages.length 
+                    ? home.featuredImages[Math.floor(Math.random()*home.featuredImages.length)] 
+                    : home.featuredImage;
+                setHomePageHero(heroImage);
+            }
             if (typeof document !== 'undefined' && typeof window !== 'undefined' && hasLoaded) {
                 const hero = document.getElementById('hero');
                 if(hero){
@@ -64,6 +74,7 @@ export default function Home(props) {
             }
         }
     );
+    console.log(homePageHero);
 
     return (
         <section className="home-page">
@@ -72,13 +83,13 @@ export default function Home(props) {
                 className="home-page-hero"
             >
                 <div
-                    className={['home-page-hero-image' + (loaded ? ' loaded' : ' loading')]}
-                    style={{ backgroundImage: "url(" + home.featuredImage + ")" }}
+                    className={['home-page-hero-image' + (homePageHeroLoaded ? ' loaded' : ' loading')]}
+                    style={{ backgroundImage: "url(" + homePageHero + ")" }}
                 >
-                    {!loaded &&
+                    {!homePageHeroLoaded &&
                         <img
-                            src={home.featuredImage || ''}
-                            onLoad={() => setLoaded(true)}
+                            src={homePageHero || ''}
+                            onLoad={() => setHomePageHeroLoaded(true)}
                         />
                     }
                 </div>

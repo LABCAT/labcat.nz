@@ -19,6 +19,7 @@ function Main() {
     const { 
         isHomePage,
         hasLoaded,
+        homePageHeroLoaded,
         showHeaderNav, 
         showFooter,
         setWindowWidth, 
@@ -55,10 +56,13 @@ function Main() {
         }
     );
 
+    console.log(homePageHeroLoaded);
+
     return (
         <React.Fragment>
-            {!hasLoaded &&
-                <SiteLoader circleCount="20" />
+            {
+                (!hasLoaded || (isHomePage && !homePageHeroLoaded)) &&
+                <SiteLoader circleCount="20" isHomePage={isHomePage} homePageHeroLoaded={homePageHeroLoaded} />
             }
             <Header
                 isHome={isHomePage}
