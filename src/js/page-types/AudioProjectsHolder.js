@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react'
-import { useRouteData } from 'react-static'
+import React from 'react'
+import { useRouteData, Head } from 'react-static';
 import NavigationTile from '../components/NavigationTile.js';
 
 export default function AudioProjectsHolder() {
     const { audioPage, audioProjects } = useRouteData();
     return (
         <section className="audio-projects-holder container">
+            <Head><title>{audioPage.title.rendered}</title></Head>
             <h1>{audioPage.title.rendered}</h1>
             <div className="grid">
                 {

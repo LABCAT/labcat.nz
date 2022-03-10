@@ -1,7 +1,6 @@
 
-import React, { useContext, Fragment } from 'react';
-import { useRouteData } from 'react-static';
-
+import React, { useContext } from 'react';
+import { useRouteData, Head } from 'react-static';
 import { Context } from '../context/Context.js';
 
 export default function CreativeCodingProject() {
@@ -27,9 +26,8 @@ export default function CreativeCodingProject() {
 
     return (
         <section className="creative-coding-project">
-            <h1 dangerouslySetInnerHTML={{ __html: project.title.rendered }} >
-
-            </h1>
+            <Head><title>{project.title.rendered}</title></Head>
+            <h1>{project.title.rendered}</h1>
             { 
                 showProject ?
                 <div className="editor-content" dangerouslySetInnerHTML={{ __html: project.content.rendered }} >

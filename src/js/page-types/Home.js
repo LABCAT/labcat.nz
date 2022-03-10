@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useCallback }  from 'react';
-import { useRouteData } from 'react-static';
+import { useRouteData, Head } from 'react-static';
 
 import { Context } from '../context/Context.js';
 
@@ -76,6 +76,7 @@ export default function Home(props) {
     );
     return (
         <section className="home-page">
+            <Head><title>{home.title.rendered}</title></Head>
             <div
                 id="hero"
                 className="home-page-hero"

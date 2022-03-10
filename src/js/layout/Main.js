@@ -1,6 +1,6 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ResizeDetector  from 'react-resize-detector';
-import { Root, Routes } from 'react-static'
+import { Routes } from 'react-static'
 import { Router, Location } from '@reach/router';
 //need cjs version for some reason:
 //https://github.com/facebook/jest/issues/8186

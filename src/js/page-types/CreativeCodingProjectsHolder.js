@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
-import { useRouteData } from 'react-static'
+import React from 'react'
+import { useRouteData, Head } from 'react-static';
+
 import NavigationTile from '../components/NavigationTile.js';
 
 export default function CreativeCodingProjectsHolder() {
     const { creativeCodingPage, codeProjects } = useRouteData();
     return (
         <section className="container">
+            <Head><title>{creativeCodingPage.title.rendered}</title></Head>
             <h1>{creativeCodingPage.title.rendered}</h1>
             <div className="grid">
                 {

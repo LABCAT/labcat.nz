@@ -19,10 +19,7 @@ export default {
     state: { siteData, renderMeta },
   }) => (
     <Html lang="en-US">
-      <Head
-          defaultTitle="Life Animated By Creative Audio Transmissions"
-          titleTemplate="LABCAT - %s"
-      >
+      <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0C94B0" />
