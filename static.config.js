@@ -66,6 +66,13 @@ export default {
       "https://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
     );
 
+    const animationsPage = pages.find(
+      (page) => page.reactComponent === "AnimationsHolder"
+    );
+    const { data: animationProjects } = await axios.get(
+      "https://mysite.labcat.nz/wp-json/wp/v2/animations"
+    );
+
     return [
       {
         path: "/",
@@ -74,6 +81,21 @@ export default {
           home,
           children,
         }),
+      },
+      {
+        path: "/animations",
+        template: "src/js/page-types/AnimationsHolder",
+        getData: () => ({
+          animationsPage,
+          animationProjects,
+        }),
+        children: animationProjects.map((project) => ({
+          path: `/${project.slug}`,
+          template: "src/js/page-types/AnimationProject",
+          getData: () => ({
+            project,
+          }),
+        })),
       },
       {
         path: "/creative-coding",
