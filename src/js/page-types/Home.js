@@ -107,17 +107,22 @@ export default function Home(props) {
                         <div className="grid">
                             {
                                 children.map(
-                                    page => (
-                                        <NavigationTile
-                                            columns='col col-xl-2'
-                                            url={`/${page.slug}/`}
-                                            title={page.title}
-                                            featuredImage={page.featuredImage}
-                                            imagePadding="52"
-                                            key={page.id}
-                                            headinglevel="2"
-                                        />
-                                    )
+                                    (page) =>  {
+                                        if(page.slug === 'animations') {
+                                            return null;
+                                        }
+                                        return (
+                                            <NavigationTile
+                                                columns='col col-xl-2'
+                                                url={`/${page.slug}/`}
+                                                title={page.title}
+                                                featuredImage={page.featuredImage}
+                                                imagePadding="52"
+                                                key={page.id}
+                                                headinglevel="2"
+                                            />
+                                        )
+                                    }
                                 )
                             }
                         </div>
