@@ -17,6 +17,9 @@ export default function Header(props) {
             {
                 showNav && !isHome && 
                 <nav>
+                    <Link to="animations">
+                        Animations
+                    </Link>
                     <Link to="creative-coding">
                         Creative Coding
                     </Link>

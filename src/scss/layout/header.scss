@@ -23,7 +23,10 @@
     }
 
     nav {
+        display: flex;
+        align-items: center;
         margin-left: auto;
+        padding-left: 60px;
 
         a {
             padding: 20px;
@@ -34,11 +37,6 @@
 
             &:hover {
                 text-shadow: $pink-shadow;
-            }
-
-
-            @include media(min-xxl){
-                font-size: 4rem;
             }
         }
     }
