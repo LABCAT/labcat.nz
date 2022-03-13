@@ -10,12 +10,15 @@
         max-width: 492px;
         margin: 0;
         
-        &--column-2 {
-            margin-top: 60px;
-        } 
-        
-        &--column-3 {
-            margin-top: 120px;
-        } 
+
+        @include media(min-lg) {
+            &--column-2 {
+                margin-top: 60px;
+            } 
+            
+            &--column-3 {
+                margin-top: 120px;
+            } 
+        }
     }
 }
