@@ -1,0 +1,21 @@
+.animations-holder {
+
+    .grid {
+        max-width: 1476px;
+        margin: 0 auto;
+        justify-content: flex-start;
+    }
+    
+    .navigation-tile {
+        max-width: 492px;
+        margin: 0;
+        
+        &--column-2 {
+            margin-top: 60px;
+        } 
+        
+        &--column-3 {
+            margin-top: 120px;
+        } 
+    }
+}
