@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from '@reach/router'
 import Logo from '../components/Logo'
+import InstagramLogo from '../components/InstagramLogo'
+import GitHubLogo from '../components/GitHubLogo'
 
 export default function Header(props) {
     const { showNav, isHome, hasLoaded } = props;
@@ -16,17 +18,27 @@ export default function Header(props) {
             }
             {
                 showNav && !isHome && 
-                <nav>
-                    <Link to="animations">
-                        Animations
-                    </Link>
-                    <Link to="creative-coding">
-                        Creative Coding
-                    </Link>
-                    <Link to="audio">
-                        Audio Projects
-                    </Link>
-                </nav>
+                <>
+                    <nav>
+                        <Link to="animations">
+                            Animations
+                        </Link>
+                        <Link to="creative-coding">
+                            Creative Coding
+                        </Link>
+                        <Link to="audio">
+                            Audio Projects
+                        </Link>
+                    </nav>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/labcat2020/" target="_blank">
+                            { InstagramLogo }
+                        </a>
+                        <a href="https://github.com/LABCAT/" target="_blank">
+                            { GitHubLogo }
+                        </a>
+                    </div>
+                </>
             }
         </header>
     )
