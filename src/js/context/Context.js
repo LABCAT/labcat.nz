@@ -44,9 +44,9 @@ export const GlobalContextProvider = ({ children }) => {
         dispatch({ type: "SET_SHOW_FOOTER", payload: newState });
     }
 
-    return <Context.Provider 
+    return <Context.Provider
                 value={
-                    { 
+                    {
                         windowWidth: state.windowWidth,
                         hasLoaded: state.hasLoaded,
                         isHomePage: state.isHomePage,

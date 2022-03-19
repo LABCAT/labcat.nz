@@ -26,9 +26,10 @@
         display: flex;
         align-items: center;
         margin-left: auto;
-        padding-left: 60px;
+        padding-left: 80px;
 
         a {
+            max-width: 240px;
             padding: 20px;
             font-size: 2.8rem;
             -webkit-text-stroke: 2px $black;
@@ -37,6 +38,10 @@
 
             &:hover {
                 text-shadow: $pink-shadow;
+            }
+
+            @include media(min-xxl){
+                max-width: none;
             }
         }
     }
@@ -67,14 +72,15 @@
         }
     }
 
-    @include media(min-md){
+    @include media(min-lg){
         display: inline;
         width: auto;
-        padding: 18px 0 8px;
+        padding: 22px 0 0px;
     }
 
     @include media(min-xxl){
         font-size: 9.8rem;
+        padding: 24px 0 0px;
     }
 
     .is-home & {
@@ -100,11 +106,12 @@
         top: 30px;
         left: calc(50% - 105.5px);
 
-        @include media(min-md){
-            top: 15px;
+        @include media(min-lg){
+            top: 18px;
         }
 
         @include media(min-xxl){
+            top: 20px;
             left: 0;
         }
 
