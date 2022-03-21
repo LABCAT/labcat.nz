@@ -108,9 +108,6 @@ export default function Home(props) {
                             {
                                 children.map(
                                     (page) =>  {
-                                        if(page.slug === 'animations') {
-                                            return null;
-                                        }
                                         return (
                                             <NavigationTile
                                                 columns='col col-xl-2'
