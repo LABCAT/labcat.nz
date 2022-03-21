@@ -26,11 +26,11 @@
         display: flex;
         align-items: center;
         margin-left: auto;
-        padding-left: 80px;
+        padding-left: 40px;
 
         a {
             max-width: 240px;
-            padding: 20px;
+            padding: 26px 20px;
             font-size: 2.8rem;
             -webkit-text-stroke: 2px $black;
             text-transform: uppercase;
@@ -42,6 +42,7 @@
 
             @include media(min-xxl){
                 max-width: none;
+                padding: 20px;
             }
         }
     }

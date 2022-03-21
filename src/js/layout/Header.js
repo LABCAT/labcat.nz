@@ -30,11 +30,11 @@ export default function Header(props) {
                             Audio Projects
                         </Link>
                     </nav>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/labcat2020/" target="_blank">
+                    <div className="social-links">
+                        <a href="https://www.instagram.com/labcat2020/" className="social-links__link social-links__link--instagram social-links__link--first" target="_blank">
                             { InstagramLogo }
                         </a>
-                        <a href="https://github.com/LABCAT/" target="_blank">
+                        <a href="https://github.com/LABCAT/" className="social-links__link social-links__link--github" target="_blank">
                             { GitHubLogo }
                         </a>
                     </div>
