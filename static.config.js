@@ -68,7 +68,7 @@ export default {
       (page) => page.reactComponent === "AnimationsHolder"
     );
     const { data: animationProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/animations"
+      "https://mysite.labcat.nz/wp-json/wp/v2/animations?per_page=99"
     );
 
     return [
