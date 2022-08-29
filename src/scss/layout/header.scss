@@ -54,9 +54,8 @@
     width: 100%;
     padding: 32px 0 8px;
     color: transparent;
-    font-display: swap;
     font-family: 'Teko', sans-serif;
-    font-size: 7.2rem;
+    font-size: 7.8rem;
     line-height: 1;
     text-shadow: $trans-shadow;
     transition: text-shadow 1s;
@@ -81,7 +80,7 @@
     }
 
     @include media(min-xxl){
-        font-size: 9.8rem;
+        font-size: 10.6rem;
         padding: 24px 0 0px;
     }
 
@@ -89,16 +88,15 @@
         display: block;
         width: 100%;
         padding: 32px 0 0;
-        font-size: 7.2rem;
         line-height: 0.8;
         text-align: center;
 
         @include media(min-md){
-            font-size: 10.8rem;
+            font-size: 12rem;
         }
 
         @include media(min-xl){
-            font-size: 14.4rem;
+            font-size: 16rem;
         }
     }
 
@@ -114,18 +112,18 @@
 
         @include media(min-xxl){
             top: 20px;
-            left: 0;
+            left: 2px;
         }
 
         .is-home & {
-            top: 37px;
+            top: 34px;
 
             @include media(min-md){
                 left: calc(50% - 159px);
             }
 
             @include media(min-xl){
-                top: 42px;
+                top: 38px;
                 left: calc(50% - 212px);
             }
         }
