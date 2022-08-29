@@ -21,7 +21,9 @@ export default {
         <link rel="icon" href="favicon.ico" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="icon.svg" />
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
         <link
+          rel='preload' as='style' 
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap"
           rel="stylesheet"
         />
