@@ -23,7 +23,7 @@ export default {
         <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin="true" />
         <link
-          rel='preload'
+          rel='prefetch'
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;800;900&family=Teko:wght@700&display=swap"
           as='style'
           onLoad="this.onload=null;this.rel='stylesheet'"
