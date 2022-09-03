@@ -57,11 +57,10 @@
     font-family: 'Teko', sans-serif;
     font-size: 7.2rem;
     line-height: 1;
-    text-shadow: $trans-shadow;
-    transition: text-shadow 1s;
     
     &--loaded {
         text-shadow: $light-shadow;
+        transition: text-shadow 1s;
 
         &:hover {
             text-shadow: $pink-shadow;
@@ -168,7 +167,14 @@
 }
 
 .subtitle {
+    opacity: 0;
+    transition: opacity 0.5s;
+
     @include media(min-xl){
         margin-top: -8px;
-    }  
+    }
+    
+    &--loaded {
+        opacity: 1;
+    }
 }

@@ -9,12 +9,12 @@ export default function Header(props) {
     return (
         <header id="site-header" className={isHome ? 'is-home' : 'show-border'}>
             <Link to="/" className={hasLoaded ? "logo logo--loaded" : "logo"}>
-                <span className="logo__shadow">LABCAT</span>
+                <span className={hasLoaded ? "logo__shadow logo__shadow--loaded" : "logo__shadow"}>LABCAT</span>
                 { Logo }
             </Link>
             {
-                isHome &&
-                <span className='subtitle'>DIGITAL ARTIST</span>
+                isHome && 
+                <span className={hasLoaded ? "subtitle subtitle--loaded" : "subtitle"}>DIGITAL ARTIST</span>
             }
             {
                 showNav && !isHome && 
