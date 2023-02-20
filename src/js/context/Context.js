@@ -5,7 +5,7 @@ import Reducer from "./Reducer";
 const initialState = {
     windowWidth: 0,
     hasLoaded: false,
-    isHomePage: true,
+    isHomePage: false,
     homePageHero: '',
     homePageHeroLoaded: false,
     showHeaderNav: false,
