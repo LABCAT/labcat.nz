@@ -49,6 +49,7 @@
 
 .col {
     width: 100%;
+    
     @include media(min-md){
         padding-left: 32.5px;
         padding-right: 32.5px; 
@@ -61,7 +62,13 @@
 }
 
 
-@for $i from 2 through 3 {
+@for $i from 2 through 4 {
+    .col-sm-#{$i} {
+        @include media(min-sm) {
+            width: percentage(1 / $i);
+        }
+    }
+
     .col-md-#{$i} {
         @include media(min-md){
             width: percentage(1 / $i);

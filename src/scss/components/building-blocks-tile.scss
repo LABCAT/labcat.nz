@@ -1,0 +1,55 @@
+.building-blocks-tile {
+    position: relative;
+    margin-bottom: 40px;
+
+    @include media(min-sm) {
+        padding: 0 20px;
+    }
+
+    @include media(min-md) {
+        padding: 0 15px;
+    }
+
+    @include media(min-lg) {
+        padding: 0 20px;
+    }
+
+    @include media(min-sm) {
+        margin: 0;
+
+        &--column-2,
+        &--column-4 {
+            margin-top: 40px;
+        }
+    }
+
+    @include media(min-lg) {
+        &--column-3 {
+            margin-top: 80px;
+        }
+            
+        &--column-4 {
+            margin-top: 120px;
+        }
+    }
+
+    &-image {
+        padding-bottom: 133.33%;
+        background-size: cover;
+        background-position: center center;
+        border: 3px solid $black;
+        border-radius: 4px;
+        box-shadow: $light-shadow;
+        transition: all 1s;
+        opacity: 0;
+        transition: opacity 1.5s;
+
+        &.loaded {
+            opacity: 1;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}

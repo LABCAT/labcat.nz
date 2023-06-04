@@ -5,20 +5,22 @@
 //base - all html elements
 @import "./base/_index";
 
-// components - search form, hamburger button etc
-@import "./components/loader";
-@import "./components/navigation-tile";
-@import "./components/social-links";
-@import "./components/site-loader";
-
 //layout - to level layout of your website
 @import "./layout/footer";
 @import "./layout/header";
 @import "./layout/main";
 
+// components - search form, hamburger button etc
+@import "./components/building-blocks-tile";
+@import "./components/loader";
+@import "./components/navigation-tile";
+@import "./components/social-links";
+@import "./components/site-loader";
+
 //page spefic styles
 @import "./page-types/audio-project";
 @import "./page-types/animations-holder";
+@import "./page-types/building-blocks-holder";
 @import "./page-types/audio-projects-holder";
 @import "./page-types/creative-coding-project";
 @import "./page-types/home-page";

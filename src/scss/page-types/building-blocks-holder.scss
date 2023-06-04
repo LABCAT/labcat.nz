@@ -1,0 +1,40 @@
+.building-blocks-holder {
+
+    .grid {
+        max-width: 1476px;
+        margin: 0 auto;
+        
+        @include media(min-lg) {
+            justify-content: flex-start;
+        }
+    }
+
+    .col {
+        @include media(min-sm) {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        @include media(min-md) {
+            padding-left: 32.5px;
+            padding-right: 32.5px;
+        }
+    
+        @include media(min-xl) {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+    }
+    
+    .navigation-tile {
+        max-width: 827px;
+            
+        @include media(min-md) {
+            margin: 0;
+
+            &--column-2 {
+                margin-top: 60px;
+            } 
+        }
+    }
+}

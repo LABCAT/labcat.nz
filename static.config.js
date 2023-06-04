@@ -60,6 +60,20 @@ export default {
     const home = pages.find((page) => page.slug === "home");
     const children = pages.filter((page) => page.slug !== "home");
 
+    const animationsPage = pages.find(
+      (page) => page.reactComponent === "AnimationsHolder"
+    );
+    const { data: animationProjects } = await axios.get(
+      "https://mysite.labcat.nz/wp-json/wp/v2/animations?per_page=99"
+    );
+
+    const buildingBlocksPage = pages.find(
+      (page) => page.reactComponent === "BuildingBlocksHolder"
+    );
+    const { data: buildingBlocksProjects } = await axios.get(
+      "https://mysite.labcat.nz/wp-json/wp/v2/building-blocks?per_page=99"
+    );
+
     const creativeCodingPage = pages.find(
       (page) => page.reactComponent === "CreativeCodingProjectsHolder"
     );
@@ -72,13 +86,6 @@ export default {
     );
     const { data: audioProjects } = await axios.get(
       "https://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
-    );
-
-    const animationsPage = pages.find(
-      (page) => page.reactComponent === "AnimationsHolder"
-    );
-    const { data: animationProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/animations?per_page=99"
     );
 
     return [
@@ -100,6 +107,21 @@ export default {
         children: animationProjects.map((project) => ({
           path: `/${project.slug}`,
           template: "src/js/page-types/AnimationProject",
+          getData: () => ({
+            project,
+          }),
+        })),
+      },
+      {
+        path: "/building-blocks",
+        template: "src/js/page-types/BuildingBlocksProjectsHolder",
+        getData: () => ({
+          buildingBlocksPage,
+          buildingBlocksProjects,
+        }),
+        children: buildingBlocksProjects.map((project) => ({
+          path: `/${project.slug}`,
+          template: "src/js/page-types/BuildingBlocksProject",
           getData: () => ({
             project,
           }),
