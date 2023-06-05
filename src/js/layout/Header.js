@@ -23,6 +23,9 @@ export default function Header(props) {
                         <Link to="animations">
                             Animations
                         </Link>
+                        <Link to="building-blocks">
+                            Building Blocks
+                        </Link>
                         <Link to="creative-coding">
                             Creative Coding
                         </Link>

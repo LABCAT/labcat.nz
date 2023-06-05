@@ -8,8 +8,11 @@ export default function Footer(props) {
     
     return (
         <footer id="site-footer">
-            <Link to="creative-coding">
+            <Link to="animations">
                 <span>Animations</span>
+            </Link>
+            <Link to="building-blocks">
+                <span>Building Blocks</span>
             </Link>
             <Link to="creative-coding">
                 <span>Creative Coding</span>

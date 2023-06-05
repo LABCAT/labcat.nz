@@ -114,7 +114,7 @@ export default function Home(props) {
                                                 url={`/${page.slug}/`}
                                                 title={page.title}
                                                 featuredImage={page.featuredImage}
-                                                imagePadding="52"
+                                                imagePadding="56.5"
                                                 key={page.id}
                                                 headinglevel="2"
                                             />

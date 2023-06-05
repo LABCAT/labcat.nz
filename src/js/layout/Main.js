@@ -31,7 +31,7 @@ function Main() {
     const onResize = (width, height) => {
         let showHeaderNav = null;
         let showFooter = null;
-        if(width < 992){
+        if(width < 1200){
             showHeaderNav = false;
             showFooter = true;
         }

@@ -2,12 +2,13 @@
     position: fixed;
     bottom: 0;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 
     a {
         display: flex;
         align-items: center;
-        width: 33.3333%;
+        width: 50%;
         padding: 9px 0px;
         background-color: $dark-blue;
         border: 1px solid white;
@@ -17,15 +18,12 @@
         text-transform: uppercase;
 
         @include media(min-sm){
-            font-size: 1.8rem;
+            width: 25%;
             padding: 19px 0;
+            font-size: 1.8rem;
         }
 
-        @include media(min-md){
-            span {
-                max-width: none;
-            }
-        }
+        
 
         span {
             display: block;
@@ -34,6 +32,10 @@
             
             @include media(min-sm){
                 max-width: 140px;
+            }
+
+            @include media(min-lg) {
+                max-width: none;
             }
         }
     }
