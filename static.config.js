@@ -1,9 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-//https://web.dev/add-manifest/
-//https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
-
 export default {
   Document: ({
     Html,
@@ -55,7 +52,7 @@ export default {
   ),
   getRoutes: async () => {
     const { data: pages } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/pages"
+      "https://api.labcat.nz/pages"
     );
     const home = pages.find((page) => page.slug === "home");
     const children = pages.filter((page) => page.slug !== "home");
@@ -64,28 +61,28 @@ export default {
       (page) => page.reactComponent === "AnimationsHolder"
     );
     const { data: animationProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/animations?per_page=99"
+      "https://api.labcat.nz/animations?per_page=99"
     );
 
     const buildingBlocksPage = pages.find(
       (page) => page.reactComponent === "BuildingBlocksHolder"
     );
     const { data: buildingBlocksProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/building-blocks?per_page=99"
+      "https://api.labcat.nz/building-blocks?per_page=99"
     );
 
     const creativeCodingPage = pages.find(
       (page) => page.reactComponent === "CreativeCodingProjectsHolder"
     );
     const { data: codeProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/creative-coding"
+      "https://api.labcat.nz/creative-coding"
     );
 
     const audioPage = pages.find(
       (page) => page.reactComponent === "AudioProjectsHolder"
     );
     const { data: audioProjects } = await axios.get(
-      "https://mysite.labcat.nz/wp-json/wp/v2/audio-projects"
+      "https://api.labcat.nz/audio-projects"
     );
 
     return [

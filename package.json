@@ -6,8 +6,7 @@
     "stage": "react-static build --staging",
     "build": "react-static build",
     "analyze": "react-static build --analyze",
-    "serve": "serve dist -p 3000",
-    "dev": "webpack-dev-server --mode development"
+    "serve": "serve dist -p 3000"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
@@ -32,6 +31,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
+    "react-hot-loader": "^4.13.1",
+    "sass": "1.35.1",
     "serve": "^11.1.0"
   }
 }
